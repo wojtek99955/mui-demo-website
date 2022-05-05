@@ -52,7 +52,7 @@ function EditProfile() {
         validationSchema={validationSchema}
       >
         <Form>
-          <Stack spacing={2}>
+          <Stack spacing={1}>
             <Stack direction="row" spacing={2}>
               <Stack>
                 <Field
@@ -77,15 +77,17 @@ function EditProfile() {
                 <ErrorMessage name="surname" component={ValidationError} />
               </Stack>
             </Stack>
-            <Field
-              as={TextField}
-              label="email"
-              variant="outlined"
-              name="email"
-              type="text"
-              fullWidth
-            />
-            <ErrorMessage name="email" component={ValidationError} />
+            <Stack>
+              <Field
+                as={TextField}
+                label="email"
+                variant="outlined"
+                name="email"
+                type="text"
+                fullWidth
+              />
+              <ErrorMessage name="email" component={ValidationError} />
+            </Stack>
             <Field
               as={TextField}
               label="phone number"
@@ -95,15 +97,17 @@ function EditProfile() {
               fullWidth
             />
             <ErrorMessage name="tel" />
-            <Field
-              as={TextField}
-              label="address"
-              variant="outlined"
-              name="address"
-              type="text"
-              fullWidth
-            />
-            <ErrorMessage name="address" component={ValidationError} />
+            <Stack>
+              <Field
+                as={TextField}
+                label="address"
+                variant="outlined"
+                name="address"
+                type="text"
+                fullWidth
+              />
+              <ErrorMessage name="address" component={ValidationError} />
+            </Stack>
             <Stack direction="row" spacing={2}>
               <Stack>
                 <Field
@@ -128,24 +132,31 @@ function EditProfile() {
                 <ErrorMessage name="city" component={ValidationError} />
               </Stack>
             </Stack>
-            <Field
-              as={TextField}
-              label="password"
-              variant="outlined"
-              name="password"
-              type="password"
-              fullWidth
-            />
-            <ErrorMessage name="password" component={ValidationError} />
-            <Field
-              as={TextField}
-              label="confirm password"
-              variant="outlined"
-              name="confirmPassword"
-              type="password"
-              fullWidth
-            />
-            <ErrorMessage name="confirmPassword" component={ValidationError} />
+            <Stack>
+              <Field
+                as={TextField}
+                label="password"
+                variant="outlined"
+                name="password"
+                type="password"
+                fullWidth
+              />
+              <ErrorMessage name="password" component={ValidationError} />
+            </Stack>
+            <Stack>
+              <Field
+                as={TextField}
+                label="confirm password"
+                variant="outlined"
+                name="confirmPassword"
+                type="password"
+                fullWidth
+              />
+              <ErrorMessage
+                name="confirmPassword"
+                component={ValidationError}
+              />
+            </Stack>
           </Stack>
           <Button variant="outlined" type="submit" sx={{ marginTop: "2rem" }}>
             Save Changes
