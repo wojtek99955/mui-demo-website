@@ -158,7 +158,11 @@ function EditProfile() {
               />
             </Stack>
           </Stack>
-          <Button variant="outlined" type="submit" sx={{ marginTop: "2rem" }}>
+          <Button
+            variant="contained"
+            type="submit"
+            sx={{ marginTop: "2rem", padding: "0.6rem" }}
+          >
             Save Changes
           </Button>
         </Form>
