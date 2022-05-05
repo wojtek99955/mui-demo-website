@@ -7,12 +7,17 @@ import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOu
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const UserIcon = styled(AccountCircleOutlinedIcon)`
   color: white;
 `;
 const AddIcon = styled(AddCircleOutlineOutlinedIcon)`
   color: white;
+`;
+const StyledLink = styled(Link)`
+  text-decoration: None;
+  color: black;
 `;
 
 function Header() {
@@ -37,8 +42,12 @@ function Header() {
           open={open}
           onClose={handleClose}
         >
-          <MenuItem onClick={handleClose}>Profile</MenuItem>
-          <MenuItem onClick={handleClose}>Edit account</MenuItem>
+          <StyledLink to="/profile">
+            <MenuItem onClick={handleClose}>Profile</MenuItem>
+          </StyledLink>
+          <StyledLink to="/edit-profile">
+            <MenuItem onClick={handleClose}>Edit account</MenuItem>
+          </StyledLink>
           <MenuItem onClick={handleClose}>Logout</MenuItem>
         </Menu>
         <IconButton>
