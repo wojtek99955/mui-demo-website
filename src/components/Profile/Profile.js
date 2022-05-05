@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Box, Typography } from "@mui/material";
 import { Button } from "@mui/material";
 import { Stack } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const Container = styled.section``;
 const Wrapper = styled.div`
@@ -10,6 +11,9 @@ const Wrapper = styled.div`
   max-width: 600px;
   border: 1px solid grey;
   padding: 2rem;
+`;
+const StyledLink = styled(Link)`
+  text-decoration: none;
 `;
 
 function Profile() {
@@ -32,7 +36,9 @@ function Profile() {
           <Typography>City</Typography>
         </Stack>
         <Box textAlign="center">
-          <Button variant="contained">Update</Button>
+          <StyledLink to="/edit-profile">
+            <Button variant="contained">Update</Button>
+          </StyledLink>
         </Box>
       </Wrapper>
     </Container>
