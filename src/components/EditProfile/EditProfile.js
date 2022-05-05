@@ -3,6 +3,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import ValidationError from "./ValidationError";
 
 const Container = styled.section`
   max-width: 500px;
@@ -53,24 +54,28 @@ function EditProfile() {
         <Form>
           <Stack spacing={2}>
             <Stack direction="row" spacing={2}>
-              <Field
-                as={TextField}
-                label="name"
-                variant="outlined"
-                name="name"
-                type="text"
-                fullWidth
-              />
-              <ErrorMessage name="name" />
-              <Field
-                as={TextField}
-                label="surname"
-                variant="outlined"
-                name="surname"
-                type="text"
-                fullWidth
-              />
-              <ErrorMessage name="surname" />
+              <Stack>
+                <Field
+                  as={TextField}
+                  label="name"
+                  variant="outlined"
+                  name="name"
+                  type="text"
+                  fullWidth
+                />
+                <ErrorMessage name="name" component={ValidationError} />
+              </Stack>
+              <Stack>
+                <Field
+                  as={TextField}
+                  label="surname"
+                  variant="outlined"
+                  name="surname"
+                  type="text"
+                  fullWidth
+                />
+                <ErrorMessage name="surname" component={ValidationError} />
+              </Stack>
             </Stack>
             <Field
               as={TextField}
@@ -80,7 +85,7 @@ function EditProfile() {
               type="text"
               fullWidth
             />
-            <ErrorMessage name="email" />
+            <ErrorMessage name="email" component={ValidationError} />
             <Field
               as={TextField}
               label="phone number"
@@ -98,26 +103,30 @@ function EditProfile() {
               type="text"
               fullWidth
             />
-            <ErrorMessage name="address" />
+            <ErrorMessage name="address" component={ValidationError} />
             <Stack direction="row" spacing={2}>
-              <Field
-                as={TextField}
-                label="zip code"
-                variant="outlined"
-                name="zipCode"
-                type="text"
-                fullWidth
-              />
-              <ErrorMessage name="zipCode" />
-              <Field
-                as={TextField}
-                label="city"
-                variant="outlined"
-                name="city"
-                type="text"
-                fullWidth
-              />
-              <ErrorMessage name="city" />
+              <Stack>
+                <Field
+                  as={TextField}
+                  label="zip code"
+                  variant="outlined"
+                  name="zipCode"
+                  type="text"
+                  fullWidth
+                />
+                <ErrorMessage name="zipCode" component={ValidationError} />
+              </Stack>
+              <Stack>
+                <Field
+                  as={TextField}
+                  label="city"
+                  variant="outlined"
+                  name="city"
+                  type="text"
+                  fullWidth
+                />
+                <ErrorMessage name="city" component={ValidationError} />
+              </Stack>
             </Stack>
             <Field
               as={TextField}
@@ -127,7 +136,7 @@ function EditProfile() {
               type="password"
               fullWidth
             />
-            <ErrorMessage name="password" />
+            <ErrorMessage name="password" component={ValidationError} />
             <Field
               as={TextField}
               label="confirm password"
@@ -136,7 +145,7 @@ function EditProfile() {
               type="password"
               fullWidth
             />
-            <ErrorMessage name="confirmPassword" />
+            <ErrorMessage name="confirmPassword" component={ValidationError} />
           </Stack>
           <Button variant="outlined" type="submit" sx={{ marginTop: "2rem" }}>
             Save Changes
