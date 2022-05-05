@@ -9,6 +9,7 @@ const Wrapper = styled.div`
   margin-top: 5rem;
   max-width: 600px;
   border: 1px solid grey;
+  padding: 2rem;
 `;
 
 function Profile() {
@@ -19,12 +20,8 @@ function Profile() {
           Your Profile
         </Typography>
         <Stack direction="row" justifyContent="space-around">
-          <Typography variant="string" component="p">
-            Name
-          </Typography>
-          <Typography variant="string" component="p">
-            Surname
-          </Typography>
+          <Typography>Name</Typography>
+          <Typography>Surname</Typography>
         </Stack>
         <Stack direction="row" justifyContent="space-around">
           <Typography>Age</Typography>
