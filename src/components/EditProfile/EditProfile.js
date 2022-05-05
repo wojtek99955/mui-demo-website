@@ -1,7 +1,8 @@
 import { TextField, Typography, Button, Stack } from "@mui/material";
 import { useState } from "react";
 import styled from "styled-components";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 
 const Container = styled.section`
   max-width: 500px;
@@ -26,12 +27,29 @@ function EditProfile() {
   const onSubmit = (values) => {
     console.log(values);
   };
+  const validationSchema = Yup.object().shape({
+    name: Yup.string().required("required"),
+    surname: Yup.string().required("required"),
+    email: Yup.string().email("type valid email").required("required"),
+    tel: Yup.string(),
+    address: Yup.string().required("required"),
+    zipCode: Yup.string().required("required"),
+    city: Yup.string().required("required"),
+    password: Yup.string().required("required").min(6),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref("password")], "password must match")
+      .required("required"),
+  });
   return (
     <Container>
       <Typography variant="h4" component="h1" align="center" mb={3}>
         Edit Your Profile
       </Typography>
-      <Formik initialValues={initialValues} onSubmit={onSubmit}>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={onSubmit}
+        validationSchema={validationSchema}
+      >
         <Form>
           <Stack spacing={2}>
             <Stack direction="row" spacing={2}>
@@ -43,6 +61,7 @@ function EditProfile() {
                 type="text"
                 fullWidth
               />
+              <ErrorMessage name="name" />
               <Field
                 as={TextField}
                 label="surname"
@@ -51,6 +70,7 @@ function EditProfile() {
                 type="text"
                 fullWidth
               />
+              <ErrorMessage name="surname" />
             </Stack>
             <Field
               as={TextField}
@@ -60,6 +80,7 @@ function EditProfile() {
               type="text"
               fullWidth
             />
+            <ErrorMessage name="email" />
             <Field
               as={TextField}
               label="phone number"
@@ -68,6 +89,7 @@ function EditProfile() {
               type="text"
               fullWidth
             />
+            <ErrorMessage name="tel" />
             <Field
               as={TextField}
               label="address"
@@ -76,15 +98,17 @@ function EditProfile() {
               type="text"
               fullWidth
             />
+            <ErrorMessage name="address" />
             <Stack direction="row" spacing={2}>
               <Field
                 as={TextField}
-                label="zipp code"
+                label="zip code"
                 variant="outlined"
                 name="zipCode"
                 type="text"
                 fullWidth
               />
+              <ErrorMessage name="zipCode" />
               <Field
                 as={TextField}
                 label="city"
@@ -93,6 +117,7 @@ function EditProfile() {
                 type="text"
                 fullWidth
               />
+              <ErrorMessage name="city" />
             </Stack>
             <Field
               as={TextField}
@@ -102,6 +127,7 @@ function EditProfile() {
               type="password"
               fullWidth
             />
+            <ErrorMessage name="password" />
             <Field
               as={TextField}
               label="confirm password"
@@ -110,6 +136,7 @@ function EditProfile() {
               type="password"
               fullWidth
             />
+            <ErrorMessage name="confirmPassword" />
           </Stack>
           <Button variant="outlined" type="submit" sx={{ marginTop: "2rem" }}>
             Save Changes
