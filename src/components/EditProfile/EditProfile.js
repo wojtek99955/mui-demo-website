@@ -15,10 +15,13 @@ function EditProfile() {
   const initialValues = {
     name: "",
     surname: "",
-    age: "",
+    email: "",
+    tel: "",
     address: "",
     zipCode: "",
     city: "",
+    password: "",
+    confirmPassword: "",
   };
   const onSubmit = (values) => {
     console.log(values);
@@ -49,24 +52,30 @@ function EditProfile() {
                 fullWidth
               />
             </Stack>
-            <Stack direction="row" spacing={2}>
-              <Field
-                as={TextField}
-                label="age"
-                variant="outlined"
-                name="age"
-                type="text"
-                fullWidth
-              />
-              <Field
-                as={TextField}
-                label="address"
-                variant="outlined"
-                name="address"
-                type="text"
-                fullWidth
-              />
-            </Stack>
+            <Field
+              as={TextField}
+              label="email"
+              variant="outlined"
+              name="email"
+              type="text"
+              fullWidth
+            />
+            <Field
+              as={TextField}
+              label="phone number"
+              variant="outlined"
+              name="tel"
+              type="text"
+              fullWidth
+            />
+            <Field
+              as={TextField}
+              label="address"
+              variant="outlined"
+              name="address"
+              type="text"
+              fullWidth
+            />
             <Stack direction="row" spacing={2}>
               <Field
                 as={TextField}
@@ -85,6 +94,22 @@ function EditProfile() {
                 fullWidth
               />
             </Stack>
+            <Field
+              as={TextField}
+              label="password"
+              variant="outlined"
+              name="password"
+              type="password"
+              fullWidth
+            />
+            <Field
+              as={TextField}
+              label="confirm password"
+              variant="outlined"
+              name="confirmPassword"
+              type="password"
+              fullWidth
+            />
           </Stack>
           <Button variant="outlined" type="submit" sx={{ marginTop: "2rem" }}>
             Save Changes
