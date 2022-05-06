@@ -24,29 +24,31 @@ const links = [
     icon: <HelpIcon />,
   },
 ];
-const Container = styled.div``;
+
 function SideMenu() {
   return (
-    <Container>
-      <Drawer
-        variant="permanent"
-        anchor="left"
-        PaperProps={{
-          style: { width: "15rem", display: "block" },
-        }}
-      >
-        <List>
-          {links.map((link) => {
-            return (
-              <ListItem button>
-                <ListItemIcon>{link.icon}</ListItemIcon>
-                <ListItemText primary={link.text} />
-              </ListItem>
-            );
-          })}
-        </List>
-      </Drawer>
-    </Container>
+    <Drawer
+      variant="permanent"
+      anchor="left"
+      PaperProps={{
+        style: {
+          width: "15rem",
+          height: "100vh",
+          position: "relative",
+        },
+      }}
+    >
+      <List>
+        {links.map((link) => {
+          return (
+            <ListItem button>
+              <ListItemIcon>{link.icon}</ListItemIcon>
+              <ListItemText primary={link.text} />
+            </ListItem>
+          );
+        })}
+      </List>
+    </Drawer>
   );
 }
 

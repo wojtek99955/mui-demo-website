@@ -17,6 +17,10 @@ const Container = styled.main`
   min-height: 100vh;
 `;
 
+const Content = styled.div`
+  display: flex;
+`;
+
 function App() {
   return (
     <>
@@ -24,13 +28,15 @@ function App() {
       <Wrapper>
         <Container>
           <Header />
-          <SideMenu />
-          <Routes>
-            <Route path="/" element={<MainPage />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/edit-profile" element={<EditProfile />} />
-            <Route path="/help" element={<Help />} />
-          </Routes>
+          <Content>
+            <SideMenu />
+            <Routes>
+              <Route path="/" element={<MainPage />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/edit-profile" element={<EditProfile />} />
+              <Route path="/help" element={<Help />} />
+            </Routes>
+          </Content>
         </Container>
       </Wrapper>
     </>
