@@ -31,10 +31,7 @@ function Header() {
   };
 
   return (
-    <AppBar
-      sx={{ borderTopLeftRadius: "20px", borderTopRightRadius: "20px" }}
-      position="static"
-    >
+    <AppBar position="static">
       <Toolbar>
         <IconButton onClick={handleClick}>
           <UserIcon />

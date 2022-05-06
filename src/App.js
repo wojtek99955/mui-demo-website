@@ -13,9 +13,7 @@ const Wrapper = styled.div`
 
 const Container = styled.main`
   background-color: white;
-  border-radius: 20px;
-  min-height: 900px;
-  margin: 1rem;
+  min-height: 100vh;
 `;
 
 function App() {
