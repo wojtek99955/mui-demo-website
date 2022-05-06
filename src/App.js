@@ -5,6 +5,7 @@ import EditProfile from "./components/EditProfile/EditProfile";
 import { Routes, Route } from "react-router-dom";
 import { GlobalStyle } from "./assets/GlobalStyle";
 import styled from "styled-components";
+import SideMenu from "./components/SideMenu/SideMenu";
 
 const Wrapper = styled.div`
   background-color: #e5eaf3;
@@ -24,6 +25,7 @@ function App() {
       <Wrapper>
         <Container>
           <Header />
+          <SideMenu />
           <Routes>
             <Route path="/" element={<MainPage />} />
             <Route path="/profile" element={<Profile />} />
