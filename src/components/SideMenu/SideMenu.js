@@ -24,14 +24,16 @@ const links = [
     icon: <HelpIcon />,
   },
 ];
-
+const Container = styled.div``;
 function SideMenu() {
   return (
-    <>
+    <Container>
       <Drawer
         variant="permanent"
         anchor="left"
-        sx={{ width: "6rem", top: "initial" }}
+        PaperProps={{
+          style: { width: "15rem", display: "block" },
+        }}
       >
         <List>
           {links.map((link) => {
@@ -44,7 +46,7 @@ function SideMenu() {
           })}
         </List>
       </Drawer>
-    </>
+    </Container>
   );
 }
 
