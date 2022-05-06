@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import { GlobalStyle } from "./assets/GlobalStyle";
 import styled from "styled-components";
 import SideMenu from "./components/SideMenu/SideMenu";
+import Help from "./components/Help/Help";
 
 const Wrapper = styled.div`
   background-color: #e5eaf3;
@@ -28,6 +29,7 @@ function App() {
             <Route path="/" element={<MainPage />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/edit-profile" element={<EditProfile />} />
+            <Route path="/help" element={<Help />} />
           </Routes>
         </Container>
       </Wrapper>
