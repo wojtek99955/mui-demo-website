@@ -28,7 +28,11 @@ const links = [
 function SideMenu() {
   return (
     <>
-      <Drawer variant="permanent" anchor="left" sx={{ width: "6rem" }}>
+      <Drawer
+        variant="permanent"
+        anchor="left"
+        sx={{ width: "6rem", top: "initial" }}
+      >
         <List>
           {links.map((link) => {
             return (

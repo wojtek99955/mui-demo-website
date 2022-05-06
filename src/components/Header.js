@@ -18,6 +18,7 @@ const AddIcon = styled(AddCircleOutlineOutlinedIcon)`
 const StyledLink = styled(Link)`
   text-decoration: None;
   color: black;
+  margin-left: auto;
 `;
 
 function Header() {
@@ -32,8 +33,8 @@ function Header() {
 
   return (
     <AppBar position="static">
-      <Toolbar>
-        <IconButton onClick={handleClick}>
+      <Toolbar sx={{ ml: "auto" }}>
+        <IconButton onClick={handleClick} sx={{ mr: 0 }}>
           <UserIcon />
         </IconButton>
         <Menu
@@ -50,9 +51,6 @@ function Header() {
           </StyledLink>
           <MenuItem onClick={handleClose}>Logout</MenuItem>
         </Menu>
-        <IconButton>
-          <AddIcon />
-        </IconButton>
       </Toolbar>
     </AppBar>
   );
