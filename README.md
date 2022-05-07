@@ -6,7 +6,7 @@ App created with MUI
 
 ## Live
 
-Link:
+https://wojtekk-mui-app-demo.netlify.app/
 
 ## Technologies
 
