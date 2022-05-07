@@ -7,6 +7,7 @@ import { GlobalStyle } from "./assets/GlobalStyle";
 import styled from "styled-components";
 import SideMenu from "./components/SideMenu/SideMenu";
 import Help from "./components/Help/Help";
+import Settings from "./components/Settings/Settings";
 
 const Wrapper = styled.div`
   background-color: #e5eaf3;
@@ -35,6 +36,7 @@ function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/edit-profile" element={<EditProfile />} />
               <Route path="/help" element={<Help />} />
+              <Route path="/settings" element={<Settings />} />
             </Routes>
           </Content>
         </Container>
