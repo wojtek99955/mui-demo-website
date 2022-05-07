@@ -8,6 +8,7 @@ import styled from "styled-components";
 import SideMenu from "./components/SideMenu/SideMenu";
 import Help from "./components/Help/Help";
 import Settings from "./components/Settings/Settings";
+import Dashboard from "./components/Dashboard/Dashboard";
 
 const Wrapper = styled.div`
   background-color: #e5eaf3;
@@ -37,6 +38,7 @@ function App() {
               <Route path="/edit-profile" element={<EditProfile />} />
               <Route path="/help" element={<Help />} />
               <Route path="/settings" element={<Settings />} />
+              <Route path="/dashboard" element={<Dashboard />} />
             </Routes>
           </Content>
         </Container>
