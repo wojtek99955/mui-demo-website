@@ -6,6 +6,7 @@ function Settings() {
       <Typography variant="h4">Settings</Typography>
       <Typography variant="h5">Account</Typography>
       <Typography variant="h5">Preferences</Typography>
+      <Typography variant="h5">Username</Typography>
       <Switch />
     </Container>
   );
