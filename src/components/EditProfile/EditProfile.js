@@ -1,9 +1,10 @@
 import { TextField, Typography, Button, Stack } from "@mui/material";
-import { useState } from "react";
 import styled from "styled-components";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import ValidationError from "./ValidationError";
+import { useContext } from "react";
+import { Context } from "../../ContextProvider";
 
 const Container = styled.section`
   max-width: 500px;
@@ -14,6 +15,7 @@ const Container = styled.section`
 `;
 
 function EditProfile() {
+  const context = useContext(Context);
   const initialValues = {
     name: "",
     surname: "",
@@ -26,7 +28,8 @@ function EditProfile() {
     confirmPassword: "",
   };
   const onSubmit = (values) => {
-    console.log(values);
+    context.setUserData(values);
+    console.log(context.userData);
   };
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("required"),
