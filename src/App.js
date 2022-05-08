@@ -9,6 +9,7 @@ import SideMenu from "./components/SideMenu/SideMenu";
 import Help from "./components/Help/Help";
 import Settings from "./components/Settings/Settings";
 import Dashboard from "./components/Dashboard/Dashboard";
+import ContextProvider from "./ContextProvider";
 
 const Wrapper = styled.div`
   background-color: #e5eaf3;
@@ -27,22 +28,24 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <Wrapper>
-        <Container>
-          <Header />
-          <Content>
-            <SideMenu />
-            <Routes>
-              <Route path="/" element={<MainPage />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/edit-profile" element={<EditProfile />} />
-              <Route path="/help" element={<Help />} />
-              <Route path="/settings" element={<Settings />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-            </Routes>
-          </Content>
-        </Container>
-      </Wrapper>
+      <ContextProvider>
+        <Wrapper>
+          <Container>
+            <Header />
+            <Content>
+              <SideMenu />
+              <Routes>
+                <Route path="/" element={<MainPage />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/edit-profile" element={<EditProfile />} />
+                <Route path="/help" element={<Help />} />
+                <Route path="/settings" element={<Settings />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+              </Routes>
+            </Content>
+          </Container>
+        </Wrapper>
+      </ContextProvider>
     </>
   );
 }
