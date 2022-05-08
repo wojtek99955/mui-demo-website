@@ -15,21 +15,24 @@ const StyledLink = styled(Link)`
 
 function Profile() {
   const context = useContext(Context);
+  const {
+    userData: { name, surname, address, zipCode, city },
+  } = context;
   return (
     <Card sx={{ maxWidth: "600px", margin: "auto", marginTop: "1rem" }}>
       <Typography variant="h3" component="h1" align="center">
         Your Profile
       </Typography>
       <Stack direction="row" justifyContent="space-around">
-        <Typography>{context.userData.name}</Typography>
-        <Typography>{context.userData.surname}</Typography>
+        <Typography>{name}</Typography>
+        <Typography>{surname}</Typography>
       </Stack>
       <Stack direction="row" justifyContent="space-around">
-        <Typography>{context.userData.address}</Typography>
+        <Typography>{address}</Typography>
       </Stack>
       <Stack direction="row" justifyContent="space-around">
-        <Typography>{context.userData.zipCode}</Typography>
-        <Typography>{context.userData.city}</Typography>
+        <Typography>{zipCode}</Typography>
+        <Typography>{city}</Typography>
       </Stack>
       <Box textAlign="center">
         <StyledLink to="/edit-profile">
