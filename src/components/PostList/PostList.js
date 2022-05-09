@@ -12,17 +12,19 @@ function PostList() {
 
   return (
     <>
-      {posts.map((post) => {
-        return (
-          <Card>
-            <Stack direction="row" spacing={2}>
-              <UserIcon />
-              <Typography variant="h6">{`${post.name} ${post.surname}`}</Typography>
-            </Stack>
-            <Typography variant="p">{post.text}</Typography>
-          </Card>
-        );
-      })}
+      <Stack spacing={3} sx={{ maxWidth: "550px", margin: "auto" }}>
+        {posts.map((post) => {
+          return (
+            <Card sx={{ padding: "1rem" }}>
+              <Stack direction="row" spacing={2} mb={3}>
+                <UserIcon />
+                <Typography variant="h6">{`${post.name} ${post.surname}`}</Typography>
+              </Stack>
+              <Typography variant="p">{post.text}</Typography>
+            </Card>
+          );
+        })}
+      </Stack>
     </>
   );
 }
