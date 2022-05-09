@@ -9,6 +9,7 @@ import styled from "styled-components";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import HelpIcon from "@mui/icons-material/Help";
 import SettingsIcon from "@mui/icons-material/Settings";
+import CreateIcon from "@mui/icons-material/Create";
 import { useNavigate } from "react-router-dom";
 
 const links = [
@@ -16,6 +17,11 @@ const links = [
     text: "Dashboard",
     icon: <DashboardIcon />,
     path: "/dashboard",
+  },
+  {
+    text: "Posts",
+    icon: <CreateIcon />,
+    path: "/posts",
   },
   {
     text: "Settings",
