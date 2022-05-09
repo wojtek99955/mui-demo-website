@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import ValidationError from "./ValidationError";
 import { useContext } from "react";
 import { Context } from "../../ContextProvider";
+import { useState } from "react";
 
 const Container = styled.section`
   max-width: 500px;
@@ -16,6 +17,7 @@ const Container = styled.section`
 
 function EditProfile() {
   const context = useContext(Context);
+  const [saveMessage, setSaveMessage] = useState(false);
   const initialValues = {
     name: "",
     surname: "",
@@ -27,9 +29,11 @@ function EditProfile() {
     password: "",
     confirmPassword: "",
   };
+
   const onSubmit = (values) => {
     context.setUserData(values);
     console.log(context.userData);
+    setSaveMessage(true);
   };
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("required"),
@@ -170,6 +174,11 @@ function EditProfile() {
           </Button>
         </Form>
       </Formik>
+      {saveMessage ? (
+        <Typography variant="h6" sx={{ color: "green" }}>
+          Changes saved!
+        </Typography>
+      ) : null}
     </Container>
   );
 }
