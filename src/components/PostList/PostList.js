@@ -13,8 +13,12 @@ import {
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import styled from "styled-components";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const UserIcon = styled(AccountCircleOutlinedIcon)``;
+const StyledDeleteIcon = styled(DeleteIcon)`
+  color: red;
+`;
 
 function PostList() {
   const ctx = useContext(Context);
@@ -44,7 +48,10 @@ function PostList() {
                     <MoreHorizIcon />
                   </IconButton>
                   <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
-                    <MenuItem onClick={handleClose}>Delete</MenuItem>
+                    <MenuItem onClick={handleClose}>
+                      <StyledDeleteIcon />
+                      Delete
+                    </MenuItem>
                   </Menu>
                 </Toolbar>
               </Stack>
