@@ -53,8 +53,13 @@ function PostList() {
                     <MoreHorizIcon />
                   </IconButton>
                   <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
-                    <MenuItem onClick={handleClose}>
-                      <StyledDeleteIcon onClick={() => handleDelete(post.id)} />
+                    <MenuItem
+                      onClick={() => {
+                        handleClose();
+                        handleDelete(post.id);
+                      }}
+                    >
+                      <StyledDeleteIcon />
                       Delete
                     </MenuItem>
                   </Menu>
