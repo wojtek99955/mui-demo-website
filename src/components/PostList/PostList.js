@@ -32,12 +32,17 @@ function PostList() {
     setAnchorEl(null);
   };
 
+  function handleDelete(id) {
+    const newList = posts.filter((post) => post.id !== id);
+    ctx.setPosts(newList);
+  }
+
   return (
     <>
       <Stack spacing={3} sx={{ maxWidth: "550px", margin: "auto" }}>
         {posts.map((post) => {
           return (
-            <Card sx={{ padding: "1rem" }}>
+            <Card key={ctx.posts.id} sx={{ padding: "1rem" }}>
               <Stack direction="row">
                 <Stack direction="row" spacing={2} mb={3}>
                   <UserIcon />
@@ -49,7 +54,7 @@ function PostList() {
                   </IconButton>
                   <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
                     <MenuItem onClick={handleClose}>
-                      <StyledDeleteIcon />
+                      <StyledDeleteIcon onClick={() => handleDelete(post.id)} />
                       Delete
                     </MenuItem>
                   </Menu>
