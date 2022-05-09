@@ -1,7 +1,10 @@
-import { Card, TextField, Button, Typography } from "@mui/material";
+import { Card, TextField, Button, Typography, Stack } from "@mui/material";
 import { useContext } from "react";
 import { Context } from "../../ContextProvider";
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import styled from "styled-components";
 
+const UserIcon = styled(AccountCircleOutlinedIcon)``;
 function AddPost() {
   const ctx = useContext(Context);
   const {
@@ -9,7 +12,10 @@ function AddPost() {
   } = ctx;
   return (
     <Card sx={{ width: "550px", margin: " 1rem auto", padding: "1rem" }}>
-      <Typography>{`${name} ${surname}`}</Typography>
+      <Stack direction="row" spacing={2}>
+        <UserIcon />
+        <Typography>{`${name} ${surname}`}</Typography>
+      </Stack>
       <TextField
         multiline
         maxRows={4}
