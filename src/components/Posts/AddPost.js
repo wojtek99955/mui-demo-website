@@ -5,6 +5,7 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import styled from "styled-components";
 import { Formik, Form, Field } from "formik";
 import Posts from "./Posts";
+import { v4 as uuid } from "uuid";
 
 const UserIcon = styled(AccountCircleOutlinedIcon)``;
 
@@ -18,9 +19,19 @@ function AddPost() {
     name,
     surname,
     text: "",
+    id: "",
   };
-  const onSubmit = (values) => {
-    ctx.setPosts([values, ...ctx.posts]);
+  const onSubmit = (values, { resetForm }) => {
+    ctx.setPosts([
+      {
+        name: values.name,
+        surname: values.surname,
+        text: values.text,
+        id: uuid(),
+      },
+      ...ctx.posts,
+    ]);
+    resetForm();
   };
   console.log(ctx.posts);
   return (
