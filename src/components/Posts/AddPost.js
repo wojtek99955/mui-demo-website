@@ -1,8 +1,15 @@
-import { Card, TextField, Button } from "@mui/material";
+import { Card, TextField, Button, Typography } from "@mui/material";
+import { useContext } from "react";
+import { Context } from "../../ContextProvider";
 
 function AddPost() {
+  const ctx = useContext(Context);
+  const {
+    userData: { name, surname },
+  } = ctx;
   return (
     <Card sx={{ width: "550px", margin: " 1rem auto", padding: "1rem" }}>
+      <Typography>{`${name} ${surname}`}</Typography>
       <TextField
         multiline
         maxRows={4}
