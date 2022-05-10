@@ -15,10 +15,10 @@ import styled from "styled-components";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Link } from "react-router-dom";
-import AddCircleIcon from "@mui/icons-material/AddCircle";
+import BookmarkAddedIcon from "@mui/icons-material/BookmarkAdded";
 
 const UserIcon = styled(AccountCircleOutlinedIcon)``;
-const AddIcon = styled(AddCircleIcon)`
+const AddIcon = styled(BookmarkAddedIcon)`
   color: green;
   margin-right: 0.5rem;
 `;
