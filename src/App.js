@@ -11,6 +11,7 @@ import Settings from "./components/Settings/Settings";
 import Dashboard from "./components/Dashboard/Dashboard";
 import ContextProvider from "./ContextProvider";
 import Posts from "./components/Posts/Posts";
+import SavedPosts from "./components/SavedPosts/SavedPosts";
 
 const Wrapper = styled.div`
   background-color: #e5eaf3;
@@ -44,6 +45,7 @@ function App() {
                 <Route path="/settings" element={<Settings />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/posts" element={<Posts />} />
+                <Route path="/saved-posts" element={<SavedPosts />} />
               </Routes>
             </Content>
           </Container>
