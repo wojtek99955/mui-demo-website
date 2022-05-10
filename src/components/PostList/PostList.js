@@ -5,10 +5,9 @@ import {
   Button,
   Typography,
   Stack,
-  Toolbar,
   IconButton,
   Menu,
-  MenuItem,
+  Tooltip,
 } from "@mui/material";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import styled from "styled-components";
@@ -34,14 +33,6 @@ const StyledLink = styled(Link)`
 function PostList() {
   const ctx = useContext(Context);
   const { posts } = ctx;
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
 
   function handleDelete(id) {
     const newList = posts.filter((post) => post.id !== id);
@@ -53,7 +44,7 @@ function PostList() {
       <Stack spacing={3} sx={{ maxWidth: "550px", margin: "auto" }}>
         {posts.map((post) => {
           return (
-            <Card key={ctx.posts.id} sx={{ padding: "1rem" }}>
+            <Card key={post.id} sx={{ padding: "1rem" }}>
               <Stack
                 direction="row"
                 sx={{ display: "flex", alignItems: "center" }}
@@ -68,28 +59,19 @@ function PostList() {
                     <StyledLink to="/profile">{`${post.name} ${post.surname}`}</StyledLink>
                   </Typography>
                 </Stack>
-                <Toolbar sx={{ ml: "auto" }}>
-                  <IconButton onClick={handleClick}>
-                    <MoreHorizIcon />
+                <Tooltip
+                  sx={{ marginLeft: "auto" }}
+                  title="delete"
+                  onClick={() => handleDelete(post.id)}
+                >
+                  <IconButton>
+                    <DeleteIcon />
                   </IconButton>
-                  <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
-                    <MenuItem
-                      onClick={() => {
-                        handleClose();
-                        handleDelete(post.id);
-                      }}
-                    >
-                      <StyledDeleteIcon />
-                      Delete
-                    </MenuItem>
-                    <MenuItem onClick={handleClose}>
-                      <AddIcon />
-                      Save
-                    </MenuItem>
-                  </Menu>
-                </Toolbar>
+                </Tooltip>
               </Stack>
-              <Typography variant="p">{post.text}</Typography>
+              <Typography variant="p" onClick={() => handleDelete(post.id)}>
+                {post.text}
+              </Typography>
             </Card>
           );
         })}
