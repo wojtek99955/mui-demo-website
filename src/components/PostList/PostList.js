@@ -18,6 +18,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 const UserIcon = styled(AccountCircleOutlinedIcon)``;
 const StyledDeleteIcon = styled(DeleteIcon)`
   color: red;
+  margin-right: 1rem;
 `;
 
 function PostList() {
@@ -43,8 +44,15 @@ function PostList() {
         {posts.map((post) => {
           return (
             <Card key={ctx.posts.id} sx={{ padding: "1rem" }}>
-              <Stack direction="row">
-                <Stack direction="row" spacing={2} mb={3}>
+              <Stack
+                direction="row"
+                sx={{ display: "flex", alignItems: "center" }}
+              >
+                <Stack
+                  direction="row"
+                  spacing={2}
+                  sx={{ alignItems: "center" }}
+                >
                   <UserIcon />
                   <Typography variant="h6">{`${post.name} ${post.surname}`}</Typography>
                 </Stack>
