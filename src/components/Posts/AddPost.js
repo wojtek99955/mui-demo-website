@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { Formik, Form, Field } from "formik";
 import { v4 as uuid } from "uuid";
 import { Link } from "react-router-dom";
+import * as Yup from "yup";
 
 const UserIcon = styled(AccountCircleOutlinedIcon)``;
 const StyledLink = styled(Link)`
@@ -37,7 +38,11 @@ function AddPost() {
     ]);
     resetForm();
   };
-  console.log(ctx.posts);
+  const validationSchema = Yup.object({
+    name: Yup.string().required(),
+    surname: Yup.string().required(),
+    text: Yup.string().required(),
+  });
   return (
     <Card sx={{ width: "550px", margin: " 1rem auto", padding: "1rem" }}>
       <Stack direction="row" spacing={2}>
@@ -46,7 +51,11 @@ function AddPost() {
           <StyledLink to="/profile">{`${name} ${surname}`}</StyledLink>
         </Typography>
       </Stack>
-      <Formik initialValues={initialValues} onSubmit={onSubmit}>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={onSubmit}
+        validationSchema={validationSchema}
+      >
         <Form>
           <Field
             as={TextField}
