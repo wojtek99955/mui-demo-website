@@ -33,15 +33,16 @@ function AddPost() {
         surname: values.surname,
         text: values.text,
         id: uuid(),
+        liked: false,
       },
       ...ctx.posts,
     ]);
     resetForm();
   };
   const validationSchema = Yup.object({
-    name: Yup.string().required(),
-    surname: Yup.string().required(),
-    text: Yup.string().required(),
+    // name: Yup.string().required(),
+    // surname: Yup.string().required(),
+    // text: Yup.string().required(),
   });
   return (
     <Card sx={{ width: "550px", margin: " 1rem auto", padding: "1rem" }}>

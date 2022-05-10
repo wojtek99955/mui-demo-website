@@ -8,6 +8,7 @@ import {
   IconButton,
   Menu,
   Tooltip,
+  Divider,
 } from "@mui/material";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import styled from "styled-components";
@@ -15,8 +16,16 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Link } from "react-router-dom";
 import BookmarkAddedIcon from "@mui/icons-material/BookmarkAdded";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 
 const UserIcon = styled(AccountCircleOutlinedIcon)``;
+const UnlikedIcon = styled(FavoriteBorderIcon)`
+  color: red;
+`;
+const LikedIcon = styled(FavoriteIcon)`
+  color: red;
+`;
 const AddIcon = styled(BookmarkAddedIcon)`
   color: green;
   margin-right: 0.5rem;
@@ -38,7 +47,20 @@ function PostList() {
     const newList = posts.filter((post) => post.id !== id);
     ctx.setPosts(newList);
   }
-
+  const handleLiked = (id) => {
+    ctx.setPosts(
+      posts.map((post) => {
+        if (post.id === id) {
+          return {
+            ...posts,
+            liked: !post.liked,
+          };
+        } else {
+          return posts;
+        }
+      })
+    );
+  };
   return (
     <>
       <Stack spacing={3} sx={{ maxWidth: "550px", margin: "auto" }}>
@@ -69,9 +91,11 @@ function PostList() {
                   </IconButton>
                 </Tooltip>
               </Stack>
-              <Typography variant="p" onClick={() => handleDelete(post.id)}>
-                {post.text}
-              </Typography>
+              <Typography variant="p">{post.text}</Typography>
+              <Divider sx={{ marginTop: "1rem" }} />
+              <div onClick={() => handleLiked(posts.id)}>
+                {post.liked ? <LikedIcon /> : <UnlikedIcon />}
+              </div>
             </Card>
           );
         })}
