@@ -15,11 +15,16 @@ import styled from "styled-components";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Link } from "react-router-dom";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
 
 const UserIcon = styled(AccountCircleOutlinedIcon)``;
+const AddIcon = styled(AddCircleIcon)`
+  color: green;
+  margin-right: 0.5rem;
+`;
 const StyledDeleteIcon = styled(DeleteIcon)`
   color: red;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
 `;
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -76,6 +81,10 @@ function PostList() {
                     >
                       <StyledDeleteIcon />
                       Delete
+                    </MenuItem>
+                    <MenuItem onClick={handleClose}>
+                      <AddIcon />
+                      Save
                     </MenuItem>
                   </Menu>
                 </Toolbar>
