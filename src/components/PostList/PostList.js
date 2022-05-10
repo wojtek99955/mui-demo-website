@@ -14,11 +14,16 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import styled from "styled-components";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { Link } from "react-router-dom";
 
 const UserIcon = styled(AccountCircleOutlinedIcon)``;
 const StyledDeleteIcon = styled(DeleteIcon)`
   color: red;
   margin-right: 1rem;
+`;
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: black;
 `;
 
 function PostList() {
@@ -54,7 +59,9 @@ function PostList() {
                   sx={{ alignItems: "center" }}
                 >
                   <UserIcon />
-                  <Typography variant="h6">{`${post.name} ${post.surname}`}</Typography>
+                  <Typography variant="h6">
+                    <StyledLink to="/profile">{`${post.name} ${post.surname}`}</StyledLink>
+                  </Typography>
                 </Stack>
                 <Toolbar sx={{ ml: "auto" }}>
                   <IconButton onClick={handleClick}>
