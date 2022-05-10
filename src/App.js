@@ -23,6 +23,7 @@ const Container = styled.main`
 
 const Content = styled.div`
   display: flex;
+  background-color: #f0f2f5;
 `;
 
 function App() {
