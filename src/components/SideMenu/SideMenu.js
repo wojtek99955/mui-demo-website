@@ -11,6 +11,7 @@ import HelpIcon from "@mui/icons-material/Help";
 import SettingsIcon from "@mui/icons-material/Settings";
 import CreateIcon from "@mui/icons-material/Create";
 import { useNavigate } from "react-router-dom";
+import BookmarkAddedIcon from "@mui/icons-material/BookmarkAdded";
 
 const links = [
   {
@@ -22,6 +23,11 @@ const links = [
     text: "Posts",
     icon: <CreateIcon />,
     path: "/posts",
+  },
+  {
+    text: "Saved",
+    icon: <BookmarkAddedIcon />,
+    path: "/saved-posts",
   },
   {
     text: "Settings",
