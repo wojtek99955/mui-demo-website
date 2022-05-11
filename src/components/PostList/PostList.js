@@ -40,7 +40,15 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   color: black;
 `;
-
+const Comments = styled.ul`
+  list-style-type: none;
+  li {
+    background-color: #f0f2f5;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+  }
+`;
 function PostList() {
   const ctx = useContext(Context);
   const { posts } = ctx;
@@ -66,6 +74,19 @@ function PostList() {
     nnewArray[elementId] = {
       ...nnewArray[elementId],
       commentOpen: !nnewArray[elementId].commentOpen,
+    };
+    ctx.setPosts(nnewArray);
+  };
+  const [comment, setComment] = useState("");
+  const CommentsOnchange = (e) => {
+    setComment(e.target.value);
+  };
+  const addComment = (id) => {
+    const elementId = posts.findIndex((element) => element.id === id);
+    const nnewArray = [...posts];
+    nnewArray[elementId] = {
+      ...nnewArray[elementId],
+      comments: [comment, ...posts[elementId].comments],
     };
     ctx.setPosts(nnewArray);
   };
@@ -116,10 +137,24 @@ function PostList() {
               </Stack>
               {post.commentOpen ? (
                 <Stack direction="row" spacing={1}>
-                  <TextField fullWidth size="small" />
-                  <Button variant="contained">Add</Button>
+                  <TextField
+                    onChange={CommentsOnchange}
+                    fullWidth
+                    size="small"
+                  />
+                  <Button
+                    variant="contained"
+                    onClick={() => addComment(post.id)}
+                  >
+                    Add
+                  </Button>
                 </Stack>
               ) : null}
+              <Comments>
+                {post.comments.map((comment) => {
+                  return <li>{comment}</li>;
+                })}
+              </Comments>
             </Card>
           );
         })}
