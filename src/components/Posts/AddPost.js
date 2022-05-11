@@ -21,15 +21,13 @@ function AddPost() {
   } = ctx;
 
   const initialValues = {
-    name,
-    surname,
     text: "",
   };
   const onSubmit = (values, { resetForm }) => {
     ctx.setPosts([
       {
-        name: values.name,
-        surname: values.surname,
+        name,
+        surname,
         text: values.text,
         id: uuid(),
         liked: false,

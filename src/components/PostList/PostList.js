@@ -9,6 +9,7 @@ import {
   Menu,
   Tooltip,
   Divider,
+  TextField,
 } from "@mui/material";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import styled from "styled-components";
@@ -50,20 +51,25 @@ function PostList() {
   }
 
   const handleLiked = (id) => {
-    ctx.setPosts(
-      posts.map((post) => {
-        if (post.id === id) {
-          return {
-            ...posts,
-            liked: !post.liked,
-          };
-        } else {
-          return posts;
-        }
-      })
-    );
+    const elementId = posts.findIndex((element) => element.id === id);
+    const newArray = [...posts];
+    newArray[elementId] = {
+      ...newArray[elementId],
+      liked: !newArray[elementId].liked,
+    };
+    ctx.setPosts(newArray);
   };
-  console.log(posts);
+
+  const openComment = (id) => {
+    const elementId = posts.findIndex((element) => element.id === id);
+    const nnewArray = [...posts];
+    nnewArray[elementId] = {
+      ...nnewArray[elementId],
+      commentOpen: !nnewArray[elementId].commentOpen,
+    };
+    ctx.setPosts(nnewArray);
+  };
+  console.log(posts[0].commentOpen);
   return (
     <>
       <Stack spacing={3} sx={{ maxWidth: "550px", margin: "auto" }}>
@@ -104,8 +110,12 @@ function PostList() {
                     <UnlikedIcon fontSize="small" />
                   )}
                 </div>
-                <CommentOutlinedIcon fontSize="small" />
+                <CommentOutlinedIcon
+                  onClick={() => openComment(post.id)}
+                  fontSize="small"
+                />
               </Stack>
+              {post.commentOpen ? <TextField fullWidth size="small" /> : null}
             </Card>
           );
         })}
