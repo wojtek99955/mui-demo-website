@@ -33,6 +33,7 @@ function AddPost() {
         text: values.text,
         id: uuid(),
         liked: false,
+        commentOpen: false,
       },
       ...ctx.posts,
     ]);
