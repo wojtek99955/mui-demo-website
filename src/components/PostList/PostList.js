@@ -20,6 +20,7 @@ import BookmarkAddedIcon from "@mui/icons-material/BookmarkAdded";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import CommentOutlinedIcon from "@mui/icons-material/CommentOutlined";
+import AddLike from "./AddLike/AddLike";
 
 const UserIcon = styled(AccountCircleOutlinedIcon)``;
 const UnlikedIcon = styled(FavoriteBorderIcon)`
@@ -123,13 +124,7 @@ function PostList() {
               <Typography variant="p">{post.text}</Typography>
               <Divider sx={{ margin: "1rem 0" }} />
               <Stack direction="row" spacing={2}>
-                <div onClick={() => handleLiked(post.id)}>
-                  {post.liked ? (
-                    <LikedIcon fontSize="small" />
-                  ) : (
-                    <UnlikedIcon fontSize="small" />
-                  )}
-                </div>
+                <AddLike post={post} />
                 <CommentOutlinedIcon
                   onClick={() => openComment(post.id)}
                   fontSize="small"
