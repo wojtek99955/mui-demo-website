@@ -18,6 +18,7 @@ import { Link } from "react-router-dom";
 import BookmarkAddedIcon from "@mui/icons-material/BookmarkAdded";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import CommentOutlinedIcon from "@mui/icons-material/CommentOutlined";
 
 const UserIcon = styled(AccountCircleOutlinedIcon)``;
 const UnlikedIcon = styled(FavoriteBorderIcon)`
@@ -94,10 +95,17 @@ function PostList() {
                 </Tooltip>
               </Stack>
               <Typography variant="p">{post.text}</Typography>
-              <Divider sx={{ marginTop: "1rem" }} />
-              <div onClick={() => handleLiked(post.id)}>
-                {post.liked ? <LikedIcon /> : <UnlikedIcon />}
-              </div>
+              <Divider sx={{ margin: "1rem 0" }} />
+              <Stack direction="row" spacing={2}>
+                <div onClick={() => handleLiked(post.id)}>
+                  {post.liked ? (
+                    <LikedIcon fontSize="small" />
+                  ) : (
+                    <UnlikedIcon fontSize="small" />
+                  )}
+                </div>
+                <CommentOutlinedIcon fontSize="small" />
+              </Stack>
             </Card>
           );
         })}
