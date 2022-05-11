@@ -24,7 +24,6 @@ function AddPost() {
     name,
     surname,
     text: "",
-    id: "",
   };
   const onSubmit = (values, { resetForm }) => {
     ctx.setPosts([

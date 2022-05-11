@@ -47,6 +47,7 @@ function PostList() {
     const newList = posts.filter((post) => post.id !== id);
     ctx.setPosts(newList);
   }
+
   const handleLiked = (id) => {
     ctx.setPosts(
       posts.map((post) => {
@@ -61,6 +62,7 @@ function PostList() {
       })
     );
   };
+  console.log(posts);
   return (
     <>
       <Stack spacing={3} sx={{ maxWidth: "550px", margin: "auto" }}>
@@ -93,7 +95,7 @@ function PostList() {
               </Stack>
               <Typography variant="p">{post.text}</Typography>
               <Divider sx={{ marginTop: "1rem" }} />
-              <div onClick={() => handleLiked(posts.id)}>
+              <div onClick={() => handleLiked(post.id)}>
                 {post.liked ? <LikedIcon /> : <UnlikedIcon />}
               </div>
             </Card>
