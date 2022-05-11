@@ -21,6 +21,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import CommentOutlinedIcon from "@mui/icons-material/CommentOutlined";
 import AddLike from "./AddLike/AddLike";
+import Comments from "./Comments/Comments";
 
 const UserIcon = styled(AccountCircleOutlinedIcon)``;
 const UnlikedIcon = styled(FavoriteBorderIcon)`
@@ -41,15 +42,7 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   color: black;
 `;
-const Comments = styled.ul`
-  list-style-type: none;
-  li {
-    background-color: #f0f2f5;
-    margin-bottom: 1rem;
-    padding: 0.5rem;
-    border-radius: 5px;
-  }
-`;
+
 function PostList() {
   const ctx = useContext(Context);
   const { posts } = ctx;
@@ -58,16 +51,6 @@ function PostList() {
     const newList = posts.filter((post) => post.id !== id);
     ctx.setPosts(newList);
   }
-
-  const handleLiked = (id) => {
-    const elementId = posts.findIndex((element) => element.id === id);
-    const newArray = [...posts];
-    newArray[elementId] = {
-      ...newArray[elementId],
-      liked: !newArray[elementId].liked,
-    };
-    ctx.setPosts(newArray);
-  };
 
   const openComment = (id) => {
     const elementId = posts.findIndex((element) => element.id === id);
@@ -78,19 +61,7 @@ function PostList() {
     };
     ctx.setPosts(nnewArray);
   };
-  const [comment, setComment] = useState("");
-  const CommentsOnchange = (e) => {
-    setComment(e.target.value);
-  };
-  const addComment = (id) => {
-    const elementId = posts.findIndex((element) => element.id === id);
-    const nnewArray = [...posts];
-    nnewArray[elementId] = {
-      ...nnewArray[elementId],
-      comments: [comment, ...posts[elementId].comments],
-    };
-    ctx.setPosts(nnewArray);
-  };
+
   return (
     <>
       <Stack spacing={3} sx={{ maxWidth: "550px", margin: "auto" }}>
@@ -130,26 +101,7 @@ function PostList() {
                   fontSize="small"
                 />
               </Stack>
-              {post.commentOpen ? (
-                <Stack direction="row" spacing={1}>
-                  <TextField
-                    onChange={CommentsOnchange}
-                    fullWidth
-                    size="small"
-                  />
-                  <Button
-                    variant="contained"
-                    onClick={() => addComment(post.id)}
-                  >
-                    Add
-                  </Button>
-                </Stack>
-              ) : null}
-              <Comments>
-                {post.comments.map((comment) => {
-                  return <li>{comment}</li>;
-                })}
-              </Comments>
+              <Comments post={post} />
             </Card>
           );
         })}
