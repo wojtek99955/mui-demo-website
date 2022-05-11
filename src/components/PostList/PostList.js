@@ -114,7 +114,12 @@ function PostList() {
                   fontSize="small"
                 />
               </Stack>
-              {post.commentOpen ? <TextField fullWidth size="small" /> : null}
+              {post.commentOpen ? (
+                <Stack direction="row" spacing={1}>
+                  <TextField fullWidth size="small" />
+                  <Button variant="contained">Add</Button>
+                </Stack>
+              ) : null}
             </Card>
           );
         })}
