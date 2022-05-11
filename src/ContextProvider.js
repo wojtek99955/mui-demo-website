@@ -5,7 +5,6 @@ export const Context = createContext({});
 function ContextProvider({ children }) {
   const [userData, setUserData] = useState({});
   const [posts, setPosts] = useState([]);
-  const [likedPosts, setLikedPosts] = useState([]);
   return (
     <Context.Provider
       value={{
@@ -13,8 +12,6 @@ function ContextProvider({ children }) {
         setUserData,
         posts,
         setPosts,
-        likedPosts,
-        setLikedPosts,
       }}
     >
       {children}

@@ -69,7 +69,6 @@ function PostList() {
     };
     ctx.setPosts(nnewArray);
   };
-  console.log(posts[0].commentOpen);
   return (
     <>
       <Stack spacing={3} sx={{ maxWidth: "550px", margin: "auto" }}>
