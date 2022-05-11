@@ -13,6 +13,7 @@ https://wojtekk-mui-app-demo.netlify.app/
 - reactjs
 - formik
 - material ui
+- yup
 
 ## Installation
 
