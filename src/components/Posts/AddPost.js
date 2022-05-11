@@ -32,6 +32,7 @@ function AddPost() {
         id: uuid(),
         liked: false,
         commentOpen: false,
+        comments: [],
       },
       ...ctx.posts,
     ]);
