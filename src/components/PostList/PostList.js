@@ -100,6 +100,7 @@ function PostList() {
                   <CommentOutlinedIcon
                     onClick={() => openComment(post.id)}
                     fontSize="small"
+                    sx={{ cursor: "pointer" }}
                   />
                 </Stack>
                 <Typography
