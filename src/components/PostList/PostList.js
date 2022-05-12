@@ -102,7 +102,7 @@ function PostList() {
                     fontSize="small"
                   />
                 </Stack>
-                <Typography variant="p">
+                <Typography variant="p" onClick={() => openComment(post.id)}>
                   comments: {post.comments.length}
                 </Typography>
               </Stack>
