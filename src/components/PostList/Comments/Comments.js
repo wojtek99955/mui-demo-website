@@ -2,8 +2,13 @@ import { useContext, useState } from "react";
 import { Context } from "../../../ContextProvider";
 import styled from "styled-components";
 import { Stack, Button, TextField } from "@mui/material";
-import HighlightOffOutlinedIcon from "@mui/icons-material/HighlightOffOutlined";
 import { v4 as uuid } from "uuid";
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+
+const UserIcon = styled(AccountCircleOutlinedIcon)``;
+const CommentText = styled.div`
+  margin-top: 1rem;
+`;
 const CommentsContainer = styled.ul`
   margin-top: 1rem;
   list-style-type: none;
@@ -12,12 +17,17 @@ const CommentsContainer = styled.ul`
     margin-bottom: 1rem;
     padding: 0.5rem;
     border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
   }
 `;
-const DeleteIcon = styled(HighlightOffOutlinedIcon)``;
+const UserData = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  h3 {
+    font-weight: 400;
+    font-size: 1rem;
+  }
+`;
 function Comments({ post }) {
   const ctx = useContext(Context);
   const { posts } = ctx;
@@ -56,8 +66,13 @@ function Comments({ post }) {
               return (
                 <>
                   <li>
-                    {comment.text}{" "}
-                    <DeleteIcon sx={{ marginLeft: "4rem" }} size="small" />
+                    <UserData>
+                      <UserIcon />
+                      <h3>{`${ctx.userData.name} ${ctx.userData.name}`}</h3>
+                    </UserData>
+                    <CommentText>
+                      <p>{comment.text} </p>
+                    </CommentText>
                   </li>
                 </>
               );
