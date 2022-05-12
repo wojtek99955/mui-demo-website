@@ -102,7 +102,11 @@ function PostList() {
                     fontSize="small"
                   />
                 </Stack>
-                <Typography variant="p" onClick={() => openComment(post.id)}>
+                <Typography
+                  variant="p"
+                  onClick={() => openComment(post.id)}
+                  sx={{ cursor: "pointer" }}
+                >
                   comments: {post.comments.length}
                 </Typography>
               </Stack>
