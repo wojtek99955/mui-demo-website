@@ -6,9 +6,11 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 const UnlikedIcon = styled(FavoriteBorderIcon)`
   color: red;
+  cursor: pointer;
 `;
 const LikedIcon = styled(FavoriteIcon)`
   color: red;
+  cursor: pointer;
 `;
 
 function AddLike({ post }) {
