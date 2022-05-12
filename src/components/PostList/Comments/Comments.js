@@ -40,7 +40,7 @@ function Comments({ post }) {
     };
     ctx.setPosts(newArray);
   };
-  console.log(post.comments);
+
   return (
     <>
       {post.commentOpen ? (

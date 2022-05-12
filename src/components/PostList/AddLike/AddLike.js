@@ -24,7 +24,6 @@ function AddLike({ post }) {
     };
     ctx.setPosts(newArray);
   };
-  console.log(post);
   return (
     <>
       <div onClick={() => handleLiked(post.id)}>
