@@ -16,6 +16,11 @@ https://wojtekk-mui-app-demo.netlify.app/
 - yup
 - react-context
 
+## Features
+
+- update profile
+- add / delete posts
+
 ## Installation
 
 Download or clone the repository
