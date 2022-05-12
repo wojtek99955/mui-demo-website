@@ -94,12 +94,17 @@ function PostList() {
               </Stack>
               <Typography variant="p">{post.text}</Typography>
               <Divider sx={{ margin: "1rem 0" }} />
-              <Stack direction="row" spacing={2}>
-                <AddLike post={post} />
-                <CommentOutlinedIcon
-                  onClick={() => openComment(post.id)}
-                  fontSize="small"
-                />
+              <Stack direction="row" justifyContent="space-between">
+                <Stack direction="row" spacing={2}>
+                  <AddLike post={post} />
+                  <CommentOutlinedIcon
+                    onClick={() => openComment(post.id)}
+                    fontSize="small"
+                  />
+                </Stack>
+                <Typography variant="p">
+                  comments: {post.comments.length}
+                </Typography>
               </Stack>
               <Comments post={post} />
             </Card>
