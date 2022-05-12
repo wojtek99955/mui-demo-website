@@ -20,6 +20,7 @@ https://wojtekk-mui-app-demo.netlify.app/
 
 - update profile
 - add / delete posts
+- add post to favorites
 
 ## Installation
 
