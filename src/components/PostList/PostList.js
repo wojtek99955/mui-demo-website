@@ -22,6 +22,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import CommentOutlinedIcon from "@mui/icons-material/CommentOutlined";
 import AddLike from "./AddLike/AddLike";
 import Comments from "./Comments/Comments";
+import EditIcon from "@mui/icons-material/Edit";
 
 const UserIcon = styled(AccountCircleOutlinedIcon)``;
 const UnlikedIcon = styled(FavoriteBorderIcon)`
@@ -82,15 +83,22 @@ function PostList() {
                     <StyledLink to="/profile">{`${post.name} ${post.surname}`}</StyledLink>
                   </Typography>
                 </Stack>
-                <Tooltip
-                  sx={{ marginLeft: "auto" }}
-                  title="delete"
-                  onClick={() => handleDelete(post.id)}
-                >
-                  <IconButton>
-                    <DeleteIcon />
-                  </IconButton>
-                </Tooltip>
+                <Stack direction="row" sx={{ marginLeft: "auto" }}>
+                  <Tooltip sx={{ marginLeft: "auto" }} title="edit">
+                    <IconButton>
+                      <EditIcon />
+                    </IconButton>
+                  </Tooltip>
+                  <Tooltip
+                    sx={{ marginLeft: "auto" }}
+                    title="delete"
+                    onClick={() => handleDelete(post.id)}
+                  >
+                    <IconButton>
+                      <DeleteIcon />
+                    </IconButton>
+                  </Tooltip>
+                </Stack>
               </Stack>
               <Typography variant="p">{post.text}</Typography>
               <Divider sx={{ margin: "1rem 0" }} />
