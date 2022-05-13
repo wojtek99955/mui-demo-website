@@ -6,39 +6,21 @@ import {
   Typography,
   Stack,
   IconButton,
-  Menu,
   Tooltip,
   Divider,
   TextField,
 } from "@mui/material";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import styled from "styled-components";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Link } from "react-router-dom";
-import BookmarkAddedIcon from "@mui/icons-material/BookmarkAdded";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import CommentOutlinedIcon from "@mui/icons-material/CommentOutlined";
 import AddLike from "./AddLike/AddLike";
 import Comments from "./Comments/Comments";
 import EditIcon from "@mui/icons-material/Edit";
 
 const UserIcon = styled(AccountCircleOutlinedIcon)``;
-const UnlikedIcon = styled(FavoriteBorderIcon)`
-  color: red;
-`;
-const LikedIcon = styled(FavoriteIcon)`
-  color: red;
-`;
-const AddIcon = styled(BookmarkAddedIcon)`
-  color: green;
-  margin-right: 0.5rem;
-`;
-const StyledDeleteIcon = styled(DeleteIcon)`
-  color: red;
-  margin-right: 0.5rem;
-`;
+
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: black;
@@ -133,6 +115,7 @@ function PostList() {
                     onChange={editOnChange}
                     fullWidth
                     defaultValue={post.text}
+                    multiline
                   />
                   <Button
                     onClick={() => {
