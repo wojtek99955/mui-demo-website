@@ -64,7 +64,7 @@ function PostList() {
     ctx.setPosts(nnewArray);
   };
   const openEdditing = (id) => {
-    const elementId = posts.findIndex((element) => (element.id = id));
+    const elementId = posts.findIndex((element) => element.id === id);
     const newArray = [...posts];
     newArray[elementId] = {
       ...newArray[elementId],
@@ -74,6 +74,16 @@ function PostList() {
   };
   const editOnChange = (e) => {
     setEditedValue(e.target.value);
+  };
+  const handleAddChange = (id) => {
+    const elementId = posts.findIndex((element) => element.id === id);
+    const newArray = [...posts];
+    newArray[elementId] = {
+      ...newArray[elementId],
+      text: editedValue,
+      edit: false,
+    };
+    ctx.setPosts(newArray);
   };
 
   return (
@@ -97,8 +107,12 @@ function PostList() {
                   </Typography>
                 </Stack>
                 <Stack direction="row" sx={{ marginLeft: "auto" }}>
-                  <Tooltip sx={{ marginLeft: "auto" }} title="edit">
-                    <IconButton onClick={() => openEdditing(post.id)}>
+                  <Tooltip
+                    onClick={() => openEdditing(post.id)}
+                    sx={{ marginLeft: "auto" }}
+                    title="edit"
+                  >
+                    <IconButton>
                       <EditIcon />
                     </IconButton>
                   </Tooltip>
@@ -114,11 +128,20 @@ function PostList() {
                 </Stack>
               </Stack>
               {post.edit ? (
-                <TextField
-                  onChange={editOnChange}
-                  fullWidth
-                  defaultValue={post.text}
-                />
+                <>
+                  <TextField
+                    onChange={editOnChange}
+                    fullWidth
+                    defaultValue={post.text}
+                  />
+                  <Button
+                    onClick={() => {
+                      handleAddChange(post.id);
+                    }}
+                  >
+                    Save
+                  </Button>
+                </>
               ) : (
                 <Typography variant="p">{post.text}</Typography>
               )}

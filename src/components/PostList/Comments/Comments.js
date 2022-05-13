@@ -57,7 +57,6 @@ function Comments({ post }) {
     ctx.setPosts(newArray);
     inputRef.current.value = "";
   };
-  console.log(inputRef);
 
   return (
     <>
