@@ -33,6 +33,7 @@ function AddPost() {
         liked: false,
         commentOpen: false,
         comments: [],
+        edit: false,
       },
       ...ctx.posts,
     ]);

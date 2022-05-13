@@ -62,6 +62,15 @@ function PostList() {
     };
     ctx.setPosts(nnewArray);
   };
+  const openEdditing = (id) => {
+    const elementId = posts.findIndex((element) => (element.id = id));
+    const newArray = [...posts];
+    newArray[elementId] = {
+      ...newArray[elementId],
+      edit: !newArray[elementId].edit,
+    };
+    ctx.setPosts(newArray);
+  };
 
   return (
     <>
@@ -85,7 +94,7 @@ function PostList() {
                 </Stack>
                 <Stack direction="row" sx={{ marginLeft: "auto" }}>
                   <Tooltip sx={{ marginLeft: "auto" }} title="edit">
-                    <IconButton>
+                    <IconButton onClick={() => openEdditing(post.id)}>
                       <EditIcon />
                     </IconButton>
                   </Tooltip>
@@ -100,7 +109,11 @@ function PostList() {
                   </Tooltip>
                 </Stack>
               </Stack>
-              <Typography variant="p">{post.text}</Typography>
+              {post.edit ? (
+                <TextField fullWidth value={post.text} />
+              ) : (
+                <Typography variant="p">{post.text}</Typography>
+              )}
               <Divider sx={{ margin: "1rem 0" }} />
               <Stack direction="row" justifyContent="space-between">
                 <Stack direction="row" spacing={2}>
