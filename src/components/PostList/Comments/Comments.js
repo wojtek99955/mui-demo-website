@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Stack, Button, TextField } from "@mui/material";
 import { v4 as uuid } from "uuid";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import { Link } from "react-router-dom";
 
 const UserIcon = styled(AccountCircleOutlinedIcon)``;
 const CommentText = styled.div`
@@ -27,6 +28,10 @@ const UserData = styled.div`
     font-weight: 400;
     font-size: 1rem;
   }
+`;
+const StyledLink = styled(Link)`
+  color: black;
+  text-decoration: none;
 `;
 function Comments({ post }) {
   const ctx = useContext(Context);
@@ -68,7 +73,7 @@ function Comments({ post }) {
                   <li>
                     <UserData>
                       <UserIcon />
-                      <h3>{`${ctx.userData.name} ${ctx.userData.surname}`}</h3>
+                      <StyledLink to="/profile">{`${ctx.userData.name} ${ctx.userData.surname}`}</StyledLink>
                     </UserData>
                     <CommentText>
                       <p>{comment.text} </p>
