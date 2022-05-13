@@ -68,25 +68,33 @@ function Comments({ post }) {
               onChange={CommentsOnchange}
               fullWidth
               size="small"
+              onKeyPress={(e) => {
+                if (e.key === "Enter") {
+                  addComment(post.id);
+                }
+              }}
             />
-            <Button variant="contained" onClick={() => addComment(post.id)}>
+            <Button
+              variant="contained"
+              onClick={() => {
+                addComment(post.id);
+              }}
+            >
               Add
             </Button>
           </Stack>
           <CommentsContainer>
             {post.comments.map((comment) => {
               return (
-                <>
-                  <li>
-                    <UserData>
-                      <UserIcon />
-                      <StyledLink to="/profile">{`${ctx.userData.name} ${ctx.userData.surname}`}</StyledLink>
-                    </UserData>
-                    <CommentText>
-                      <p>{comment.text} </p>
-                    </CommentText>
-                  </li>
-                </>
+                <li key={comment.id}>
+                  <UserData>
+                    <UserIcon />
+                    <StyledLink to="/profile">{`${ctx.userData.name} ${ctx.userData.surname}`}</StyledLink>
+                  </UserData>
+                  <CommentText>
+                    <p>{comment.text} </p>
+                  </CommentText>
+                </li>
               );
             })}
           </CommentsContainer>
