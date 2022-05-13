@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useRef } from "react";
 import { Context } from "../../../ContextProvider";
 import styled from "styled-components";
 import { Stack, Button, TextField } from "@mui/material";
@@ -34,6 +34,7 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `;
 function Comments({ post }) {
+  const inputRef = useRef(null);
   const ctx = useContext(Context);
   const { posts } = ctx;
   const [comment, setComment] = useState(null);
@@ -54,14 +55,21 @@ function Comments({ post }) {
       ],
     };
     ctx.setPosts(newArray);
+    inputRef.current.value = "";
   };
+  console.log(inputRef);
 
   return (
     <>
       {post.commentOpen ? (
         <>
           <Stack direction="row" spacing={1}>
-            <TextField onChange={CommentsOnchange} fullWidth size="small" />
+            <TextField
+              inputRef={inputRef}
+              onChange={CommentsOnchange}
+              fullWidth
+              size="small"
+            />
             <Button variant="contained" onClick={() => addComment(post.id)}>
               Add
             </Button>
