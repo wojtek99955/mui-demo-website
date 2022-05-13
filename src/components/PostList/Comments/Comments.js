@@ -68,7 +68,7 @@ function Comments({ post }) {
                   <li>
                     <UserData>
                       <UserIcon />
-                      <h3>{`${ctx.userData.name} ${ctx.userData.name}`}</h3>
+                      <h3>{`${ctx.userData.name} ${ctx.userData.surname}`}</h3>
                     </UserData>
                     <CommentText>
                       <p>{comment.text} </p>
