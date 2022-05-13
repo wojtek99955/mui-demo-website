@@ -116,6 +116,7 @@ function PostList() {
                     fullWidth
                     defaultValue={post.text}
                     multiline
+                    autoFocus
                   />
                   <Button
                     onClick={() => {
