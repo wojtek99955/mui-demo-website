@@ -47,6 +47,7 @@ const StyledLink = styled(Link)`
 function PostList() {
   const ctx = useContext(Context);
   const { posts } = ctx;
+  const [editedValue, setEditedValue] = useState("");
 
   function handleDelete(id) {
     const newList = posts.filter((post) => post.id !== id);
@@ -70,6 +71,9 @@ function PostList() {
       edit: !newArray[elementId].edit,
     };
     ctx.setPosts(newArray);
+  };
+  const editOnChange = (e) => {
+    setEditedValue(e.target.value);
   };
 
   return (
@@ -110,7 +114,11 @@ function PostList() {
                 </Stack>
               </Stack>
               {post.edit ? (
-                <TextField fullWidth value={post.text} />
+                <TextField
+                  onChange={editOnChange}
+                  fullWidth
+                  defaultValue={post.text}
+                />
               ) : (
                 <Typography variant="p">{post.text}</Typography>
               )}
