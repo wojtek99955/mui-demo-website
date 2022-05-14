@@ -19,8 +19,8 @@ function EditProfile() {
   const context = useContext(Context);
   const [saveMessage, setSaveMessage] = useState(false);
   const initialValues = {
-    name: "",
-    surname: "",
+    fname: "",
+    lname: "",
     email: "",
     tel: "",
     address: "",
@@ -36,8 +36,8 @@ function EditProfile() {
     setSaveMessage(true);
   };
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required("required"),
-    surname: Yup.string().required("required"),
+    fname: Yup.string().required("required"),
+    lname: Yup.string().required("required"),
     email: Yup.string().email("type valid email").required("required"),
     tel: Yup.string(),
     address: Yup.string().required("required"),
@@ -66,7 +66,7 @@ function EditProfile() {
                   as={TextField}
                   label="name"
                   variant="outlined"
-                  name="name"
+                  name="fname"
                   type="text"
                   fullWidth
                 />
@@ -77,7 +77,7 @@ function EditProfile() {
                   as={TextField}
                   label="surname"
                   variant="outlined"
-                  name="surname"
+                  name="lname"
                   type="text"
                   fullWidth
                 />
