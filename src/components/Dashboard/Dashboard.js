@@ -4,13 +4,15 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "../../ContextProvider";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import SettingsIcon from "@mui/icons-material/Settings";
+const StyledSettingsIcon = styled(SettingsIcon)`
+  color: grey;
+`;
 
 const StyledLink = styled(Link)`
   text-decoration: none;
 `;
-const Avatar = styled(AccountCircleOutlinedIcon)`
-  width: 2rem;
-`;
+const Avatar = styled(AccountCircleOutlinedIcon)``;
 
 function Dashboard() {
   const context = useContext(Context);
@@ -50,8 +52,11 @@ function Dashboard() {
         </Card>
       </Grid>
       <Grid item xs={12} md={6}>
-        <Card sx={{ height: "100%" }}>
-          <h3>Card</h3>
+        <Card sx={{ height: "100%", display: "flex" }}>
+          <StyledSettingsIcon sx={{ fontSize: "5rem", margin: "auto" }} />
+          <Typography variant="h3" component="h3" sx={{ margin: "auto" }}>
+            Settings
+          </Typography>
         </Card>
       </Grid>
     </Grid>
