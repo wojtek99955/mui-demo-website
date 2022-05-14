@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Box, Typography, Stack, Card, Divider } from "@mui/material";
+import { Button, Typography, Stack, Card, Divider } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "../../ContextProvider";
@@ -19,12 +19,23 @@ function Dashboard() {
   } = context;
   return (
     <div>
-      <Card sx={{ width: "100%", border: "1px solid red", marginTop: "1rem" }}>
+      <Card
+        sx={{
+          width: "100%",
+          marginTop: "1rem",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
         <Typography variant="h4" component="h1" align="center">
           Welcome {fname}
         </Typography>
         <Avatar sx={{ fontSize: "5rem" }} />
         <Divider />
+        <StyledLink to="/profile">
+          <Button>My profile</Button>
+        </StyledLink>
       </Card>
     </div>
   );
