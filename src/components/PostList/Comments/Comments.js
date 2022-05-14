@@ -62,7 +62,7 @@ function Comments({ post }) {
     <>
       {post.commentOpen ? (
         <>
-          <Stack direction="row" spacing={1}>
+          <Stack direction="row" spacing={1} mt={2}>
             <TextField
               inputRef={inputRef}
               onChange={CommentsOnchange}
