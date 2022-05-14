@@ -130,7 +130,11 @@ function PostList() {
                 <Typography variant="p">{post.text}</Typography>
               )}
               <Divider sx={{ margin: "1rem 0" }} />
-              <Stack direction="row" justifyContent="space-between">
+              <Stack
+                direction="row"
+                justifyContent="space-between"
+                alignItems="center"
+              >
                 <Stack direction="row" spacing={2}>
                   <AddLike post={post} />
                   <CommentOutlinedIcon
