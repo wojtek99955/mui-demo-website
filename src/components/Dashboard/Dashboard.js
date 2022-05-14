@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { Context } from "../../ContextProvider";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import SettingsIcon from "@mui/icons-material/Settings";
+
 const StyledSettingsIcon = styled(SettingsIcon)`
   color: grey;
 `;
@@ -37,13 +38,15 @@ function Dashboard() {
           <Avatar sx={{ fontSize: "5rem" }} />
           <Divider />
           <StyledLink to="/profile">
-            <Button>My profile</Button>
+            <Button variant="outlined">My profile</Button>
           </StyledLink>
         </Card>
       </Grid>
       <Grid item xs={12} md={6}>
-        <Card sx={{ height: "100%" }}>
-          <Button>Add Post</Button>
+        <Card sx={{ height: "100%", display: "flex" }}>
+          <Button variant="contained" sx={{ margin: "auto" }}>
+            Add Post
+          </Button>
         </Card>
       </Grid>
       <Grid item xs={12} md={6}>
