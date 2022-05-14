@@ -1,4 +1,4 @@
-import { TextField, Typography, Button, Stack } from "@mui/material";
+import { TextField, Typography, Button, Stack, Card } from "@mui/material";
 import styled from "styled-components";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -49,7 +49,7 @@ function EditProfile() {
       .required("required"),
   });
   return (
-    <Container>
+    <Card sx={{ margin: "auto", padding: "1rem", marginTop: "2rem" }}>
       <Typography variant="h4" component="h1" align="center" mb={3}>
         Edit Your Profile
       </Typography>
@@ -179,7 +179,7 @@ function EditProfile() {
           Changes saved!
         </Typography>
       ) : null}
-    </Container>
+    </Card>
   );
 }
 
