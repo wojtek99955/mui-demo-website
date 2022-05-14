@@ -85,7 +85,7 @@ function PostList() {
                 >
                   <UserIcon />
                   <Typography variant="h6">
-                    <StyledLink to="/profile">{`${post.name} ${post.surname}`}</StyledLink>
+                    <StyledLink to="/profile">{`${post.fname} ${post.lname}`}</StyledLink>
                   </Typography>
                 </Stack>
                 <Stack direction="row" sx={{ marginLeft: "auto" }}>

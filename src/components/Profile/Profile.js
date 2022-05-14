@@ -16,7 +16,7 @@ const StyledLink = styled(Link)`
 function Profile() {
   const context = useContext(Context);
   const {
-    userData: { name, surname, address, zipCode, city },
+    userData: { fname, lname, address, zipCode, city },
   } = context;
   return (
     <Card sx={{ maxWidth: "600px", margin: "auto", marginTop: "1rem" }}>
@@ -24,8 +24,8 @@ function Profile() {
         Your Profile
       </Typography>
       <Stack direction="row" justifyContent="space-around">
-        <Typography>{name}</Typography>
-        <Typography>{surname}</Typography>
+        <Typography>{fname}</Typography>
+        <Typography>{lname}</Typography>
       </Stack>
       <Stack direction="row" justifyContent="space-around">
         <Typography>{address}</Typography>

@@ -17,7 +17,7 @@ const StyledLink = styled(Link)`
 function AddPost() {
   const ctx = useContext(Context);
   const {
-    userData: { name, surname },
+    userData: { fname, lname },
   } = ctx;
 
   const initialValues = {
@@ -26,8 +26,8 @@ function AddPost() {
   const onSubmit = (values, { resetForm }) => {
     ctx.setPosts([
       {
-        name,
-        surname,
+        fname,
+        lname,
         text: values.text,
         id: uuid(),
         liked: false,
@@ -40,16 +40,14 @@ function AddPost() {
     resetForm();
   };
   const validationSchema = Yup.object({
-    // name: Yup.string().required(),
-    // surname: Yup.string().required(),
-    // text: Yup.string().required(),
+    text: Yup.string().required(),
   });
   return (
     <Card sx={{ width: "550px", margin: " 1rem auto", padding: "1rem" }}>
       <Stack direction="row" spacing={2}>
         <UserIcon />
         <Typography>
-          <StyledLink to="/profile">{`${name} ${surname}`}</StyledLink>
+          <StyledLink to="/profile">{`${fname} ${lname}`}</StyledLink>
         </Typography>
       </Stack>
       <Formik

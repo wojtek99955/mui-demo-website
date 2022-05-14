@@ -89,7 +89,7 @@ function Comments({ post }) {
                 <li key={comment.id}>
                   <UserData>
                     <UserIcon />
-                    <StyledLink to="/profile">{`${ctx.userData.name} ${ctx.userData.surname}`}</StyledLink>
+                    <StyledLink to="/profile">{`${ctx.userData.fname} ${ctx.userData.lname}`}</StyledLink>
                   </UserData>
                   <CommentText>
                     <p>{comment.text} </p>
