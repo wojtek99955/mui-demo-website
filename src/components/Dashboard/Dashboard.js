@@ -20,6 +20,8 @@ function Dashboard() {
   const {
     userData: { fname },
   } = context;
+  const { posts } = context;
+
   return (
     <Grid container spacing={3} sx={{ padding: "3rem" }}>
       <Grid item xs={12} md={6}>
@@ -36,7 +38,6 @@ function Dashboard() {
             Welcome {fname}
           </Typography>
           <Avatar sx={{ fontSize: "5rem" }} />
-          <Divider />
           <StyledLink to="/profile">
             <Button variant="outlined">My profile</Button>
           </StyledLink>
@@ -52,6 +53,19 @@ function Dashboard() {
       <Grid item xs={12} md={6}>
         <Card sx={{ height: "100%" }}>
           <h3>Posts</h3>
+          <ul>
+            {posts.slice(0, 4).map((post) => {
+              return (
+                <>
+                  <Typography variant="p" component="p">
+                    {post.text}
+                  </Typography>
+                  <Divider />
+                </>
+              );
+            })}
+          </ul>
+          <Button variant="outlined">More</Button>
         </Card>
       </Grid>
       <Grid item xs={12} md={6}>
