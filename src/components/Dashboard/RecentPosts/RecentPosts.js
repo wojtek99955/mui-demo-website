@@ -28,7 +28,7 @@ function RecentPosts() {
         {posts.slice(0, 4).map((post) => {
           return (
             <>
-              <ListItem>
+              <ListItem key={post.id}>
                 <ListItemAvatar>
                   <AccountCircleOutlinedIcon />
                 </ListItemAvatar>
