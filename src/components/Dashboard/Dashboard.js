@@ -1,13 +1,8 @@
-import styled from "styled-components";
-import { Button, Typography, Card, Grid } from "@mui/material";
-import SettingsIcon from "@mui/icons-material/Settings";
+import { Button, Card, Grid } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import ProfileCard from "./ProfileCard/ProfileCard";
 import RecentPosts from "./RecentPosts/RecentPosts";
-
-const StyledSettingsIcon = styled(SettingsIcon)`
-  color: grey;
-`;
+import SettingsCard from "./SettingsCard/SettingsCard";
 
 function Dashboard() {
   let navigate = useNavigate();
@@ -32,15 +27,7 @@ function Dashboard() {
         <RecentPosts />
       </Grid>
       <Grid item xs={12} md={6}>
-        <Card
-          sx={{ height: "100%", display: "flex", cursor: "pointer" }}
-          onClick={() => navigate("/settings")}
-        >
-          <StyledSettingsIcon sx={{ fontSize: "5rem", margin: "auto" }} />
-          <Typography variant="h3" component="h3" sx={{ margin: "auto" }}>
-            Settings
-          </Typography>
-        </Card>
+        <SettingsCard />
       </Grid>
     </Grid>
   );
