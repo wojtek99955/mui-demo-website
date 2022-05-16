@@ -5,13 +5,12 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
-import styled from "styled-components";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import HelpIcon from "@mui/icons-material/Help";
 import SettingsIcon from "@mui/icons-material/Settings";
 import CreateIcon from "@mui/icons-material/Create";
 import { useNavigate } from "react-router-dom";
-import BookmarkAddedIcon from "@mui/icons-material/BookmarkAdded";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 
 const links = [
   {
@@ -26,7 +25,7 @@ const links = [
   },
   {
     text: "Saved",
-    icon: <BookmarkAddedIcon />,
+    icon: <FavoriteIcon />,
     path: "/saved-posts",
   },
   {
