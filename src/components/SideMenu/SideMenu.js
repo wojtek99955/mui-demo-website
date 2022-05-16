@@ -57,7 +57,11 @@ function SideMenu() {
       <List>
         {links.map((link) => {
           return (
-            <ListItem button onClick={() => navigate(link.path)}>
+            <ListItem
+              key={link.text}
+              button
+              onClick={() => navigate(link.path)}
+            >
               <ListItemIcon>{link.icon}</ListItemIcon>
               <ListItemText primary={link.text} />
             </ListItem>
