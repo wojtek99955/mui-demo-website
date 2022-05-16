@@ -1,10 +1,23 @@
 import styled from "styled-components";
-import { Button, Typography, Stack, Card, Divider, Grid } from "@mui/material";
+import {
+  Button,
+  Typography,
+  Stack,
+  Card,
+  Divider,
+  Grid,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemAvatar,
+  Avatar,
+} from "@mui/material";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "../../ContextProvider";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import SettingsIcon from "@mui/icons-material/Settings";
+import NotesIcon from "@mui/icons-material/Notes";
 
 const StyledSettingsIcon = styled(SettingsIcon)`
   color: grey;
@@ -13,7 +26,7 @@ const StyledSettingsIcon = styled(SettingsIcon)`
 const StyledLink = styled(Link)`
   text-decoration: none;
 `;
-const Avatar = styled(AccountCircleOutlinedIcon)``;
+const AvatarIcon = styled(AccountCircleOutlinedIcon)``;
 
 function Dashboard() {
   const context = useContext(Context);
@@ -36,7 +49,20 @@ function Dashboard() {
           <Typography variant="h4" component="h1" align="center">
             Welcome {fname}
           </Typography>
-          <Avatar sx={{ fontSize: "5rem" }} />
+          <AvatarIcon sx={{ fontSize: "5rem" }} />
+          <Typography variant="h5" component="h3" m={2}>
+            My Stats
+          </Typography>
+          <List>
+            <ListItem>
+              <ListItemAvatar>
+                <Avatar>
+                  <NotesIcon />
+                </Avatar>
+              </ListItemAvatar>
+              <ListItemText primary={`posts: ${posts.length}`} />
+            </ListItem>
+          </List>
           <StyledLink to="/profile">
             <Button variant="outlined">My profile</Button>
           </StyledLink>
@@ -53,7 +79,7 @@ function Dashboard() {
         <Card sx={{ height: "100%", padding: "1rem" }}>
           <h3>Posts</h3>
           <ul>
-            <Grid container spacing={3} direction="column" alignItems="stretch">
+            <Grid container spacing={3} direction="column">
               {posts.slice(0, 4).map((post) => {
                 return (
                   <Grid item>
