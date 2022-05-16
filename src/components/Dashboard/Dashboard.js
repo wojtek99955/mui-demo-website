@@ -23,11 +23,10 @@ function Dashboard() {
   const { posts } = context;
 
   return (
-    <Grid container spacing={3} sx={{ padding: "3rem" }}>
+    <Grid container spacing={3} sx={{ padding: "3rem", height: "100%" }}>
       <Grid item xs={12} md={6}>
         <Card
           sx={{
-            width: "100%",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -51,19 +50,21 @@ function Dashboard() {
         </Card>
       </Grid>
       <Grid item xs={12} md={6}>
-        <Card sx={{ height: "100%" }}>
+        <Card sx={{ height: "100%", padding: "1rem" }}>
           <h3>Posts</h3>
           <ul>
-            {posts.slice(0, 4).map((post) => {
-              return (
-                <>
-                  <Typography variant="p" component="p">
-                    {post.text}
-                  </Typography>
-                  <Divider />
-                </>
-              );
-            })}
+            <Grid container spacing={3} direction="column" alignItems="stretch">
+              {posts.slice(0, 4).map((post) => {
+                return (
+                  <Grid item>
+                    <Typography variant="p" component="p">
+                      {post.text}
+                    </Typography>
+                    <Divider />
+                  </Grid>
+                );
+              })}
+            </Grid>
           </ul>
           <Button variant="outlined">More</Button>
         </Card>
