@@ -12,6 +12,8 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import ContextProvider from "./ContextProvider";
 import Posts from "./components/Posts/Posts";
 import SavedPosts from "./components/SavedPosts/SavedPosts";
+import SignUp from "./components/SignUp";
+import ProtectedRoutes from "./components/ProtectedRoutes";
 
 const Wrapper = styled.div`
   background-color: #e5eaf3;
@@ -38,14 +40,17 @@ function App() {
             <Content>
               <SideMenu />
               <Routes>
-                <Route path="/" element={<MainPage />} />
-                <Route path="/profile" element={<Profile />} />
-                <Route path="/edit-profile" element={<EditProfile />} />
-                <Route path="/help" element={<Help />} />
-                <Route path="/settings" element={<Settings />} />
-                <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/posts" element={<Posts />} />
-                <Route path="/saved-posts" element={<SavedPosts />} />
+                <Route path="/signup" element={<SignUp />} />
+                <Route element={<ProtectedRoutes />}>
+                  <Route path="/" element={<MainPage />} />
+                  <Route path="/profile" element={<Profile />} />
+                  <Route path="/edit-profile" element={<EditProfile />} />
+                  <Route path="/help" element={<Help />} />
+                  <Route path="/settings" element={<Settings />} />
+                  <Route path="/dashboard" element={<Dashboard />} />
+                  <Route path="/posts" element={<Posts />} />
+                  <Route path="/saved-posts" element={<SavedPosts />} />
+                </Route>
               </Routes>
             </Content>
           </Container>
