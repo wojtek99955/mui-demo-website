@@ -11,6 +11,7 @@ import {
   ListItemText,
   ListItemAvatar,
   Avatar,
+  Box,
 } from "@mui/material";
 import { useContext } from "react";
 import { Context } from "../../ContextProvider";
@@ -18,6 +19,7 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import SettingsIcon from "@mui/icons-material/Settings";
 import NotesIcon from "@mui/icons-material/Notes";
 import { useNavigate } from "react-router-dom";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 
 const StyledSettingsIcon = styled(SettingsIcon)`
   color: grey;
@@ -33,6 +35,7 @@ function Dashboard() {
   const { posts } = context;
 
   let navigate = useNavigate();
+  const likedPosts = posts.filter((notes) => notes.liked === true);
 
   return (
     <Grid container spacing={3} sx={{ padding: "3rem", height: "100%" }}>
@@ -62,6 +65,14 @@ function Dashboard() {
               </ListItemAvatar>
               <ListItemText primary={`posts: ${posts.length}`} />
             </ListItem>
+            <ListItem>
+              <ListItemAvatar>
+                <Avatar>
+                  <FavoriteIcon />
+                </Avatar>
+              </ListItemAvatar>
+              <ListItemText primary={`saved: ${likedPosts.length}`} />
+            </ListItem>
           </List>
           <Button variant="outlined" onClick={() => navigate("/profile")}>
             My profile
@@ -81,7 +92,9 @@ function Dashboard() {
       </Grid>
       <Grid item xs={12} md={6}>
         <Card sx={{ height: "100%", padding: "1rem" }}>
-          <h3>Posts</h3>
+          <Typography variant="h5" component="h3" align="center">
+            Recent Posts
+          </Typography>
           <List>
             {posts.slice(0, 4).map((post) => {
               return (
@@ -97,9 +110,11 @@ function Dashboard() {
               );
             })}
           </List>
-          <Button variant="outlined" onClick={() => navigate("/posts")}>
-            More
-          </Button>
+          <Box textAlign="center" mt={2}>
+            <Button variant="outlined" onClick={() => navigate("/posts")}>
+              More
+            </Button>
+          </Box>
         </Card>
       </Grid>
       <Grid item xs={12} md={6}>
