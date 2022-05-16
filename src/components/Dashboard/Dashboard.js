@@ -12,7 +12,6 @@ import {
   ListItemAvatar,
   Avatar,
 } from "@mui/material";
-import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "../../ContextProvider";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
@@ -44,6 +43,7 @@ function Dashboard() {
             flexDirection: "column",
             alignItems: "center",
             height: "100%",
+            padding: "1rem",
           }}
         >
           <Typography variant="h4" component="h1" align="center">
@@ -82,20 +82,21 @@ function Dashboard() {
       <Grid item xs={12} md={6}>
         <Card sx={{ height: "100%", padding: "1rem" }}>
           <h3>Posts</h3>
-          <ul>
-            <Grid container spacing={3} direction="column">
-              {posts.slice(0, 4).map((post) => {
-                return (
-                  <Grid item>
-                    <Typography variant="p" component="p">
-                      {post.text}
-                    </Typography>
-                    <Divider />
-                  </Grid>
-                );
-              })}
-            </Grid>
-          </ul>
+          <List>
+            {posts.slice(0, 4).map((post) => {
+              return (
+                <>
+                  <ListItem>
+                    <ListItemAvatar>
+                      <AccountCircleOutlinedIcon />
+                    </ListItemAvatar>
+                    <ListItemText primary={`${post.text}`} />
+                  </ListItem>
+                  <Divider variant="inset" component="li" />
+                </>
+              );
+            })}
+          </List>
           <Button variant="outlined" onClick={() => navigate("/posts")}>
             More
           </Button>
