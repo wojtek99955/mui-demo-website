@@ -5,6 +5,7 @@ import { Stack, Button, TextField } from "@mui/material";
 import { v4 as uuid } from "uuid";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import { Link } from "react-router-dom";
+import { isOptionGroup } from "@mui/base";
 
 const UserIcon = styled(AccountCircleOutlinedIcon)``;
 const CommentText = styled.div`
@@ -54,8 +55,9 @@ function Comments({ post }) {
         },
       ],
     };
-    ctx.setPosts(newArray);
-    inputRef.current.value = "";
+    if (inputRef.current.value) {
+      ctx.setPosts(newArray);
+    }
   };
 
   return (
