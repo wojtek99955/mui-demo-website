@@ -4,20 +4,19 @@ import {
   Typography,
   Tooltip,
   IconButton,
-  TextField,
-  Button,
   Divider,
 } from "@mui/material";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { Context } from "../../ContextProvider";
 import CommentOutlinedIcon from "@mui/icons-material/CommentOutlined";
 import AddLike from "../PostList/AddLike/AddLike";
-import Comments from "../PostList/Comments/Comments";
+import Comments from "./Comments/Comments";
 import EditIcon from "@mui/icons-material/Edit";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import Edit from "./Edit/Edit";
 
 const UserIcon = styled(AccountCircleOutlinedIcon)``;
 
@@ -29,7 +28,6 @@ const StyledLink = styled(Link)`
 function Post({ post }) {
   const ctx = useContext(Context);
   const { posts } = ctx;
-  const [editedValue, setEditedValue] = useState("");
 
   function handleDelete(id) {
     const newList = posts.filter((post) => post.id !== id);
@@ -54,19 +52,7 @@ function Post({ post }) {
     };
     ctx.setPosts(newArray);
   };
-  const editOnChange = (e) => {
-    setEditedValue(e.target.value);
-  };
-  const handleAddChange = (id) => {
-    const elementId = posts.findIndex((element) => element.id === id);
-    const newArray = [...posts];
-    newArray[elementId] = {
-      ...newArray[elementId],
-      text: editedValue,
-      edit: false,
-    };
-    ctx.setPosts(newArray);
-  };
+
   return (
     <Card key={post.id} sx={{ padding: "1rem" }}>
       <Stack direction="row" sx={{ display: "flex", alignItems: "center" }}>
@@ -97,26 +83,7 @@ function Post({ post }) {
           </Tooltip>
         </Stack>
       </Stack>
-      {post.edit ? (
-        <>
-          <TextField
-            onChange={editOnChange}
-            fullWidth
-            defaultValue={post.text}
-            multiline
-            autoFocus
-          />
-          <Button
-            onClick={() => {
-              handleAddChange(post.id);
-            }}
-          >
-            Save
-          </Button>
-        </>
-      ) : (
-        <Typography variant="p">{post.text}</Typography>
-      )}
+      <Edit post={post} />
       <Divider sx={{ margin: "1rem 0" }} />
       <Stack direction="row" justifyContent="space-between" alignItems="center">
         <Stack direction="row" spacing={2}>

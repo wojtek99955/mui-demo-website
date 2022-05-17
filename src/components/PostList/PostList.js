@@ -12,7 +12,7 @@ function PostList() {
     <>
       <Stack spacing={3} sx={{ maxWidth: "550px", margin: "auto" }}>
         {posts.map((post) => {
-          return <Post post={post} />;
+          return <Post post={post} key={post.id} />;
         })}
       </Stack>
     </>
