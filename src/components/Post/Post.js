@@ -1,22 +1,14 @@
-import {
-  Card,
-  Stack,
-  Typography,
-  Tooltip,
-  IconButton,
-  Divider,
-} from "@mui/material";
+import { Card, Stack, Typography, Divider } from "@mui/material";
 import { useContext } from "react";
 import { Context } from "../../ContextProvider";
 import CommentOutlinedIcon from "@mui/icons-material/CommentOutlined";
 import AddLike from "../PostList/AddLike/AddLike";
 import Comments from "./Comments/Comments";
-import EditIcon from "@mui/icons-material/Edit";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import DeleteIcon from "@mui/icons-material/Delete";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import Edit from "./Edit/Edit";
+import ToolTips from "./ToolTips/ToolTips";
 
 const UserIcon = styled(AccountCircleOutlinedIcon)``;
 
@@ -29,11 +21,6 @@ function Post({ post }) {
   const ctx = useContext(Context);
   const { posts } = ctx;
 
-  function handleDelete(id) {
-    const newList = posts.filter((post) => post.id !== id);
-    ctx.setPosts(newList);
-  }
-
   const openComment = (id) => {
     const elementId = posts.findIndex((element) => element.id === id);
     const nnewArray = [...posts];
@@ -42,15 +29,6 @@ function Post({ post }) {
       commentOpen: !nnewArray[elementId].commentOpen,
     };
     ctx.setPosts(nnewArray);
-  };
-  const openEdditing = (id) => {
-    const elementId = posts.findIndex((element) => element.id === id);
-    const newArray = [...posts];
-    newArray[elementId] = {
-      ...newArray[elementId],
-      edit: !newArray[elementId].edit,
-    };
-    ctx.setPosts(newArray);
   };
 
   return (
@@ -62,26 +40,7 @@ function Post({ post }) {
             <StyledLink to="/profile">{`${post.fname} ${post.lname}`}</StyledLink>
           </Typography>
         </Stack>
-        <Stack direction="row" sx={{ marginLeft: "auto" }}>
-          <Tooltip
-            onClick={() => openEdditing(post.id)}
-            sx={{ marginLeft: "auto" }}
-            title="edit"
-          >
-            <IconButton>
-              <EditIcon />
-            </IconButton>
-          </Tooltip>
-          <Tooltip
-            sx={{ marginLeft: "auto" }}
-            title="delete"
-            onClick={() => handleDelete(post.id)}
-          >
-            <IconButton>
-              <DeleteIcon />
-            </IconButton>
-          </Tooltip>
-        </Stack>
+        <ToolTips post={post} />
       </Stack>
       <Edit post={post} />
       <Divider sx={{ margin: "1rem 0" }} />
