@@ -6,13 +6,11 @@ import styled from "styled-components";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../ContextProvider";
 
 const UserIcon = styled(AccountCircleOutlinedIcon)`
-  color: white;
-`;
-const AddIcon = styled(AddCircleOutlineOutlinedIcon)`
   color: white;
 `;
 const StyledLink = styled(Link)`
@@ -30,6 +28,7 @@ function Header() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const ctx = useContext(Context);
 
   return (
     <AppBar position="static">
@@ -49,7 +48,9 @@ function Header() {
           <StyledLink to="/edit-profile">
             <MenuItem onClick={handleClose}>Edit account</MenuItem>
           </StyledLink>
-          <MenuItem onClick={handleClose}>Logout</MenuItem>
+          <StyledLink to="/SignUp" onClick={() => ctx.setDataUser(null)}>
+            <MenuItem onClick={() => handleClose}>Logout</MenuItem>
+          </StyledLink>
         </Menu>
       </Toolbar>
     </AppBar>
