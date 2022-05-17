@@ -27,15 +27,15 @@ function RecentPosts() {
       <List>
         {posts.slice(0, 4).map((post) => {
           return (
-            <>
-              <ListItem key={post.id}>
+            <div key={post.id}>
+              <ListItem>
                 <ListItemAvatar>
                   <AccountCircleOutlinedIcon />
                 </ListItemAvatar>
                 <ListItemText primary={`${post.text}`} />
               </ListItem>
               <Divider variant="inset" component="li" />
-            </>
+            </div>
           );
         })}
       </List>
