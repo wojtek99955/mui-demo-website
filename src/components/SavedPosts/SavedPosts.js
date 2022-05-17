@@ -1,26 +1,19 @@
 import { Context } from "../../ContextProvider";
 import { useContext } from "react";
-import styled from "styled-components";
+import Post from "../Post/Post";
+import { Stack } from "@mui/material";
 
-const Container = styled.section`
-  width: 100%;
-  h1 {
-    text-align: center;
-    margin: 2rem 0;
-    font-size: 2rem;
-  }
-`;
 function SavedPosts() {
   const ctx = useContext(Context);
   const likedPosts = ctx.posts.filter((notes) => notes.liked === true);
 
   return (
-    <Container>
+    <Stack spacing={3} sx={{ minWidth: "550px", margin: " 1rem auto" }}>
       {likedPosts.length === 0 ? <h1>No saved posts here!</h1> : null}
       {likedPosts.map((post) => {
-        return <h1>{post.text}</h1>;
+        return <Post post={post} />;
       })}
-    </Container>
+    </Stack>
   );
 }
 
