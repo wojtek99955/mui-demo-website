@@ -1,5 +1,4 @@
 import { TextField, Typography, Button, Stack, Card } from "@mui/material";
-import styled from "styled-components";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import ValidationError from "./ValidationError";
@@ -7,27 +6,32 @@ import { useContext } from "react";
 import { Context } from "../../ContextProvider";
 import { useState } from "react";
 
-const Container = styled.section`
-  max-width: 500px;
-  margin: auto;
-  margin-top: 5rem;
-  border: 1px solid grey;
-  padding: 1.5rem;
-`;
-
 function EditProfile() {
   const context = useContext(Context);
+  const {
+    userData: {
+      fname,
+      lname,
+      address,
+      zipCode,
+      city,
+      email,
+      password,
+      tel,
+      confirmPassword,
+    },
+  } = context;
   const [saveMessage, setSaveMessage] = useState(false);
   const initialValues = {
-    fname: "",
-    lname: "",
-    email: "",
-    tel: "",
-    address: "",
-    zipCode: "",
-    city: "",
-    password: "",
-    confirmPassword: "",
+    fname,
+    lname,
+    email,
+    tel,
+    address,
+    zipCode,
+    city,
+    password,
+    confirmPassword,
   };
 
   const onSubmit = (values) => {
