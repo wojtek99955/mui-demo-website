@@ -24,21 +24,27 @@ function RecentPosts() {
       <Typography variant="h5" component="h3" align="center">
         Recent Posts
       </Typography>
-      <List>
-        {posts.slice(0, 4).map((post) => {
-          return (
-            <div key={post.id}>
-              <ListItem>
-                <ListItemAvatar>
-                  <AccountCircleOutlinedIcon />
-                </ListItemAvatar>
-                <ListItemText primary={`${post.text}`} />
-              </ListItem>
-              <Divider variant="inset" component="li" />
-            </div>
-          );
-        })}
-      </List>
+      {posts.length > 0 ? (
+        <List>
+          {posts.slice(0, 4).map((post) => {
+            return (
+              <div key={post.id}>
+                <ListItem>
+                  <ListItemAvatar>
+                    <AccountCircleOutlinedIcon />
+                  </ListItemAvatar>
+                  <ListItemText primary={`${post.text}`} />
+                </ListItem>
+                <Divider variant="inset" component="li" />
+              </div>
+            );
+          })}
+        </List>
+      ) : (
+        <Typography align="center" m={2}>
+          No post yet
+        </Typography>
+      )}
       <Box textAlign="center" mt={2}>
         <Button variant="outlined" onClick={() => navigate("/posts")}>
           More
