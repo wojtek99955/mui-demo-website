@@ -45,11 +45,13 @@ function RecentPosts() {
           No post yet
         </Typography>
       )}
-      <Box textAlign="center" mt={2}>
-        <Button variant="outlined" onClick={() => navigate("/posts")}>
-          More
-        </Button>
-      </Box>
+      {posts.length > 0 ? (
+        <Box textAlign="center" mt={2}>
+          <Button variant="outlined" onClick={() => navigate("/posts")}>
+            More
+          </Button>
+        </Box>
+      ) : null}
     </Card>
   );
 }
