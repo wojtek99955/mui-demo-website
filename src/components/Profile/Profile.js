@@ -5,13 +5,14 @@ import {
   Container,
   Button,
   Stack,
-  Link,
   Card,
   Divider,
+  TextField,
 } from "@mui/material";
 import { useContext } from "react";
 import { Context } from "../../ContextProvider";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import { Link } from "react-router-dom";
 
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -20,7 +21,7 @@ const StyledLink = styled(Link)`
 function Profile() {
   const context = useContext(Context);
   const {
-    userData: { fname, lname, address, zipCode, city, email },
+    userData: { fname, lname, address, zipCode, city, email, password },
   } = context;
   return (
     <>
@@ -47,12 +48,19 @@ function Profile() {
             {email}
           </Typography>
           <Divider />
-          <Stack direction="row" justifyContent="space-around">
-            <Typography>{address}</Typography>
-          </Stack>
-          <Stack direction="row" justifyContent="space-around">
-            <Typography>{zipCode}</Typography>
-            <Typography>{city}</Typography>
+          <Stack direction="column" alignItems="center">
+            <Typography>Address: {address}</Typography>
+
+            <Typography>City: {city}</Typography>
+            <Typography>Zip Code: {zipCode}</Typography>
+
+            <TextField
+              value={password}
+              type="password"
+              variant="standard"
+              label="password"
+              disabled
+            />
           </Stack>
           <Box textAlign="center">
             <StyledLink to="/edit-profile">
