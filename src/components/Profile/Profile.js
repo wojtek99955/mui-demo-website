@@ -48,8 +48,8 @@ function Profile() {
             {email}
           </Typography>
           <Divider />
-          <Stack direction="column" alignItems="center">
-            <Typography>Phone Number {tel}</Typography>
+          <Stack direction="column" spacing={1} m={2}>
+            <Typography>Phone Number: {tel}</Typography>
             <Typography>Address: {address}</Typography>
 
             <Typography>City: {city}</Typography>
@@ -61,6 +61,7 @@ function Profile() {
               variant="standard"
               label="password"
               disabled
+              sx={{ display: "block" }}
             />
           </Stack>
           <Box textAlign="center">
