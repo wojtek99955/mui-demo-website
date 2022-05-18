@@ -21,7 +21,7 @@ const StyledLink = styled(Link)`
 function Profile() {
   const context = useContext(Context);
   const {
-    userData: { fname, lname, address, zipCode, city, email, password },
+    userData: { fname, lname, address, zipCode, city, email, password, tel },
   } = context;
   return (
     <>
@@ -49,6 +49,7 @@ function Profile() {
           </Typography>
           <Divider />
           <Stack direction="column" alignItems="center">
+            <Typography>Phone Number {tel}</Typography>
             <Typography>Address: {address}</Typography>
 
             <Typography>City: {city}</Typography>
