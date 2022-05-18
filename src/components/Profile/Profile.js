@@ -33,7 +33,6 @@ function Profile() {
             maxWidth: "600px",
             margin: "auto",
             marginTop: "1rem",
-            padding: "1rem",
           }}
         >
           <Box sx={{ display: "flex", justifyContent: "center" }}>
@@ -44,9 +43,10 @@ function Profile() {
           <Typography variant="h4" align="center">
             {fname} {lname}
           </Typography>
-          <Typography variant="h6" align="center">
+          <Typography variant="subtitle1" align="center">
             {email}
           </Typography>
+          <Divider />
           <Stack direction="row" justifyContent="space-around">
             <Typography>{address}</Typography>
           </Stack>
