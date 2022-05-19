@@ -52,7 +52,7 @@ function ProfileCard() {
         <ListItem>
           <ListItemAvatar>
             <Avatar>
-              <NotesIcon />
+              <NotesIcon fontSize="small" />
             </Avatar>
           </ListItemAvatar>
           <ListItemText primary={`posts: ${posts.length}`} />
@@ -60,7 +60,7 @@ function ProfileCard() {
         <ListItem>
           <ListItemAvatar>
             <Avatar>
-              <FavoriteIcon />
+              <FavoriteIcon fontSize="small" />
             </Avatar>
           </ListItemAvatar>
           <ListItemText primary={`saved: ${likedPosts.length}`} />
@@ -68,7 +68,7 @@ function ProfileCard() {
         <ListItem>
           <ListItemAvatar>
             <Avatar>
-              <ChatBubbleIcon />
+              <ChatBubbleIcon fontSize="small" />
             </Avatar>
           </ListItemAvatar>
           <ListItemText primary={`comments: ${All.length}  `} />
