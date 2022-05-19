@@ -14,6 +14,7 @@ import Posts from "./components/Posts/Posts";
 import SavedPosts from "./components/SavedPosts/SavedPosts";
 import SignUp from "./components/SignUp";
 import ProtectedRoutes from "./components/ProtectedRoutes";
+import Preferences from "./components/Settings/Preferences/Preferences";
 
 const Wrapper = styled.div`
   background-color: #e5eaf3;
@@ -46,7 +47,9 @@ function App() {
                   <Route path="/profile" element={<Profile />} />
                   <Route path="/edit-profile" element={<EditProfile />} />
                   <Route path="/help" element={<Help />} />
-                  <Route path="/settings" element={<Settings />} />
+                  <Route path="settings" element={<Settings />}>
+                    <Route path="preferences" element={<Preferences />} />
+                  </Route>
                   <Route path="/dashboard" element={<Dashboard />} />
                   <Route path="/posts" element={<Posts />} />
                   <Route path="/saved-posts" element={<SavedPosts />} />

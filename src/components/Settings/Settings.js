@@ -1,4 +1,5 @@
 import { Card, Typography, Switch, Container } from "@mui/material";
+import { Link, Outlet } from "react-router-dom";
 
 function Settings() {
   return (
@@ -7,10 +8,12 @@ function Settings() {
         <Typography variant="h4" align="center">
           Settings
         </Typography>
-        <Typography variant="h5">Account</Typography>
+
+        <Link to="/settings/preferences">
+          <Typography variant="h5">Account</Typography>
+        </Link>
         <Typography variant="h5">Preferences</Typography>
-        <Typography variant="h5">Username</Typography>
-        <Switch />
+        <Outlet />
       </Card>
     </Container>
   );
