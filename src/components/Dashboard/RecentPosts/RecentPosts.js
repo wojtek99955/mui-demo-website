@@ -45,7 +45,7 @@ function RecentPosts() {
           No post yet
         </Typography>
       )}
-      {posts.length > 0 ? (
+      {posts.length > 4 ? (
         <Box textAlign="center" mt={2}>
           <Button variant="outlined" onClick={() => navigate("/posts")}>
             More
