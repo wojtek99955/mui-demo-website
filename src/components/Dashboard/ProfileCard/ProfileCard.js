@@ -15,6 +15,7 @@ import NotesIcon from "@mui/icons-material/Notes";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import styled from "styled-components";
+import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 
 const AvatarIcon = styled(AccountCircleOutlinedIcon)``;
 
@@ -60,6 +61,14 @@ function ProfileCard() {
             </Avatar>
           </ListItemAvatar>
           <ListItemText primary={`saved: ${likedPosts.length}`} />
+        </ListItem>
+        <ListItem>
+          <ListItemAvatar>
+            <Avatar>
+              <ChatBubbleIcon />
+            </Avatar>
+          </ListItemAvatar>
+          <ListItemText primary={`comments: `} />
         </ListItem>
       </List>
       <Button variant="outlined" onClick={() => navigate("/profile")}>
