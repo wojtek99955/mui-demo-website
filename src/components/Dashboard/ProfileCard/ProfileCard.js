@@ -16,6 +16,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import styled from "styled-components";
 import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
+import { useState } from "react";
 
 const AvatarIcon = styled(AccountCircleOutlinedIcon)``;
 
@@ -28,6 +29,8 @@ function ProfileCard() {
 
   let navigate = useNavigate();
   const likedPosts = posts.filter((notes) => notes.liked === true);
+  const All = posts.flatMap(({ comments }) => comments);
+
   return (
     <Card
       sx={{
@@ -68,7 +71,7 @@ function ProfileCard() {
               <ChatBubbleIcon />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText primary={`comments: `} />
+          <ListItemText primary={`comments: ${All.length}  `} />
         </ListItem>
       </List>
       <Button variant="outlined" onClick={() => navigate("/profile")}>
