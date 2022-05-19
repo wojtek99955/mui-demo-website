@@ -48,32 +48,38 @@ function ProfileCard() {
       <Typography variant="h5" component="h3" m={2}>
         My Stats
       </Typography>
-      <List>
-        <ListItem>
-          <ListItemAvatar>
-            <Avatar>
-              <NotesIcon fontSize="small" />
-            </Avatar>
-          </ListItemAvatar>
-          <ListItemText primary={`posts: ${posts.length}`} />
-        </ListItem>
-        <ListItem>
-          <ListItemAvatar>
-            <Avatar>
-              <FavoriteIcon fontSize="small" />
-            </Avatar>
-          </ListItemAvatar>
-          <ListItemText primary={`saved: ${likedPosts.length}`} />
-        </ListItem>
-        <ListItem>
-          <ListItemAvatar>
-            <Avatar>
-              <ChatBubbleIcon fontSize="small" />
-            </Avatar>
-          </ListItemAvatar>
-          <ListItemText primary={`comments: ${All.length}  `} />
-        </ListItem>
-      </List>
+      {posts.length > 0 ? (
+        <List>
+          <ListItem>
+            <ListItemAvatar>
+              <Avatar>
+                <NotesIcon fontSize="small" />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary={`posts: ${posts.length}`} />
+          </ListItem>
+          <ListItem>
+            <ListItemAvatar>
+              <Avatar>
+                <FavoriteIcon fontSize="small" />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary={`saved: ${likedPosts.length}`} />
+          </ListItem>
+          <ListItem>
+            <ListItemAvatar>
+              <Avatar>
+                <ChatBubbleIcon fontSize="small" />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary={`comments: ${All.length}  `} />
+          </ListItem>
+        </List>
+      ) : (
+        <Typography m={2} variant="subtitle1">
+          No Stats Yet
+        </Typography>
+      )}
       <Button variant="outlined" onClick={() => navigate("/profile")}>
         My profile
       </Button>
