@@ -23,6 +23,7 @@ https://wojtekk-mui-app-demo.netlify.app/
 - add post to favorites
 - edit posts
 - private routes
+- user stats
 
 ## Installation
 
