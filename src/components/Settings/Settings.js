@@ -9,6 +9,8 @@ import {
   ListItemIcon,
 } from "@mui/material";
 import { Outlet, NavLink } from "react-router-dom";
+import TuneIcon from "@mui/icons-material/Tune";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 function Settings() {
   const navLinkStyles = ({ isActive }) => {
@@ -25,12 +27,24 @@ function Settings() {
       <Card sx={{ margin: " 1rem auto", maxWidth: "800px", padding: "1rem" }}>
         <Stack direction="row" spacing={2}>
           <Stack>
-            <NavLink to="preferences" style={navLinkStyles}>
-              <Typography variant="h5">Preferences</Typography>
-            </NavLink>
-            <NavLink to="account" style={navLinkStyles}>
-              <Typography variant="h5">Account</Typography>
-            </NavLink>
+            <List>
+              <ListItem>
+                <ListItemIcon>
+                  <TuneIcon />
+                </ListItemIcon>
+                <NavLink to="preferences" style={navLinkStyles}>
+                  <Typography variant="h5">Preferences</Typography>
+                </NavLink>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  <AccountCircleIcon />
+                </ListItemIcon>
+                <NavLink to="account" style={navLinkStyles}>
+                  <Typography variant="h5">Account</Typography>
+                </NavLink>
+              </ListItem>
+            </List>
           </Stack>
           <Outlet />
         </Stack>
