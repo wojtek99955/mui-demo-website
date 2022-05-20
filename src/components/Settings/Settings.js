@@ -8,15 +8,15 @@ import {
   ListItemText,
   ListItemIcon,
 } from "@mui/material";
-import { Link, Outlet } from "react-router-dom";
-import styled from "styled-components";
-
-const StyledLink = styled(Link)`
-  text-decoration: none;
-  color: black;
-`;
+import { Outlet, NavLink } from "react-router-dom";
 
 function Settings() {
+  const navLinkStyles = ({ isActive }) => {
+    return {
+      color: isActive ? "#1976D2" : "black",
+      textDecoration: "none",
+    };
+  };
   return (
     <Container>
       <Typography variant="h4" align="center">
@@ -25,12 +25,12 @@ function Settings() {
       <Card sx={{ margin: " 1rem auto", maxWidth: "800px", padding: "1rem" }}>
         <Stack direction="row" spacing={2}>
           <Stack>
-            <StyledLink to="preferences">
+            <NavLink to="preferences" style={navLinkStyles}>
               <Typography variant="h5">Preferences</Typography>
-            </StyledLink>
-            <StyledLink to="account">
+            </NavLink>
+            <NavLink to="account" style={navLinkStyles}>
               <Typography variant="h5">Account</Typography>
-            </StyledLink>
+            </NavLink>
           </Stack>
           <Outlet />
         </Stack>
