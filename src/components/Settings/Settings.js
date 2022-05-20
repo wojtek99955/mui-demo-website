@@ -8,7 +8,6 @@ function Settings() {
         <Typography variant="h4" align="center">
           Settings
         </Typography>
-
         <Link to="/settings/preferences">
           <Typography variant="h5">Account</Typography>
         </Link>
