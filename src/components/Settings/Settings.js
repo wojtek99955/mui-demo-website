@@ -32,17 +32,21 @@ function Settings() {
                 <ListItemIcon>
                   <TuneIcon />
                 </ListItemIcon>
-                <NavLink to="preferences" style={navLinkStyles}>
-                  <Typography variant="h5">Preferences</Typography>
-                </NavLink>
+                <ListItemText>
+                  <NavLink to="preferences" style={navLinkStyles}>
+                    <Typography variant="h5">Preferences</Typography>
+                  </NavLink>
+                </ListItemText>
               </ListItem>
               <ListItem>
                 <ListItemIcon>
                   <AccountCircleIcon />
                 </ListItemIcon>
-                <NavLink to="account" style={navLinkStyles}>
-                  <Typography variant="h5">Account</Typography>
-                </NavLink>
+                <ListItemText>
+                  <NavLink to="account" style={navLinkStyles}>
+                    <Typography variant="h5">Account</Typography>
+                  </NavLink>
+                </ListItemText>
               </ListItem>
             </List>
           </Stack>
