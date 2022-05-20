@@ -11,6 +11,11 @@ import {
 import { Link, Outlet } from "react-router-dom";
 import styled from "styled-components";
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+`;
+
 function Settings() {
   return (
     <Container>
@@ -20,12 +25,12 @@ function Settings() {
       <Card sx={{ margin: " 1rem auto", maxWidth: "800px", padding: "1rem" }}>
         <Stack direction="row" spacing={2}>
           <Stack>
-            <Link to="/settings/preferences">
+            <StyledLink to="/settings/preferences">
               <Typography variant="h5">Preferences</Typography>
-            </Link>
-            <Link to="/settings/account">
+            </StyledLink>
+            <StyledLink to="/settings/account">
               <Typography variant="h5">Account</Typography>
-            </Link>
+            </StyledLink>
           </Stack>
           <div>
             <Outlet />
