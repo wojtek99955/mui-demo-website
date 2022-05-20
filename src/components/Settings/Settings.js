@@ -32,9 +32,7 @@ function Settings() {
               <Typography variant="h5">Account</Typography>
             </StyledLink>
           </Stack>
-          <div>
-            <Outlet />
-          </div>
+          <Outlet />
         </Stack>
       </Card>
     </Container>
