@@ -25,10 +25,10 @@ function Settings() {
       <Card sx={{ margin: " 1rem auto", maxWidth: "800px", padding: "1rem" }}>
         <Stack direction="row" spacing={2}>
           <Stack>
-            <StyledLink to="/settings/preferences">
+            <StyledLink to="preferences">
               <Typography variant="h5">Preferences</Typography>
             </StyledLink>
-            <StyledLink to="/settings/account">
+            <StyledLink to="account">
               <Typography variant="h5">Account</Typography>
             </StyledLink>
           </Stack>
