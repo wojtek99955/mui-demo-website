@@ -15,6 +15,7 @@ https://wojtekk-mui-app-demo.netlify.app/
 - material ui
 - yup
 - react-context
+- react-router
 
 ## Features
 
@@ -22,6 +23,7 @@ https://wojtekk-mui-app-demo.netlify.app/
 - add / delete posts
 - add post to favorites
 - edit posts
+- add comments
 - private routes
 - user stats: posts, likes, comments number
 
