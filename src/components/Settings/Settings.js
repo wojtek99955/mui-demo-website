@@ -7,6 +7,7 @@ import {
   ListItem,
   ListItemText,
   ListItemIcon,
+  Divider,
 } from "@mui/material";
 import { Outlet, NavLink } from "react-router-dom";
 import TuneIcon from "@mui/icons-material/Tune";
@@ -50,6 +51,7 @@ function Settings() {
               </ListItem>
             </List>
           </Stack>
+          <Divider orientation="vertical" flexItem />
           <Outlet />
         </Stack>
       </Card>
