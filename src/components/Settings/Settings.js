@@ -35,7 +35,7 @@ function Settings() {
                 </ListItemIcon>
                 <ListItemText>
                   <NavLink to="preferences" style={navLinkStyles}>
-                    <Typography variant="h5">Preferences</Typography>
+                    <Typography variant="body1">Preferences</Typography>
                   </NavLink>
                 </ListItemText>
               </ListItem>
@@ -45,7 +45,7 @@ function Settings() {
                 </ListItemIcon>
                 <ListItemText>
                   <NavLink to="account" style={navLinkStyles}>
-                    <Typography variant="h5">Account</Typography>
+                    <Typography variant="body1">Account</Typography>
                   </NavLink>
                 </ListItemText>
               </ListItem>
