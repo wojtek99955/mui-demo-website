@@ -33,6 +33,6 @@ Download or clone the repository
 
 ````bash
   npm install
-  npm run dev
+  npm start
 ```
 ````
